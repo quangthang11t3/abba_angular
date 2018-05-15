@@ -29,15 +29,13 @@
                             "src/assets/css/font.css",
                             "src/assets/css/bootstrap.min.css",
                             "src/assets/css/smartphone.css",
-                            // "src/assets/css/jquery.dataTables.min.css",
                             "src/styles.css"
                         ],
                         "scripts": [
-                            "src/assets/js/jquery-3.3.1.min.js",
+                            "node_modules/jquery/dist/jquery.js",
+                            "node_modules/echarts/dist/echarts.min.js",
                             "src/assets/js/bootstrap.min.js",
-                            "src/assets/js/canvasjs.min.js",
                             "src/assets/js/moment.js",
-                            // "src/assets/js/jquery.dataTables.min.js",
                             "src/assets/js/bootstrap-datetimepicker.min.js"
                         ]
                     },

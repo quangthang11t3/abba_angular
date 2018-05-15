@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="abba" />
+    <meta name="keywords" content="abba" />
+    <meta name="author" content="R.I.P Team" />
+</head>
+
+<body>
+    <div class="dashboard">
+        <header class="container-fluid">
+            <div id="logo"><a href="#">abba</a></div>
+            <div class="languages_login">
+                <a href="javascript:void(0)" class="languages hvr-pop vietnamese">Vietnamese</a>
+                <a href="javascript:void(0)" class="languages hvr-pop english">English</a>
+                <a class="hvr-buzz-out login" href="javascript:void(0)"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+            </div>
+        </header>
+        <div class="row outer_content_box">
+            <router-outlet></router-outlet>
+        </div>
+        <app-footer></app-footer>
+    </div>
+</body>
+
+</html>

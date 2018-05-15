@@ -1,0 +1,115 @@
+/*=========================
+common
+=========================*/
+
+.outer_content_box {
+    margin: 10px;
+    background-color: #f3f3f3;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 6px;
+}
+
+span.glyphicon {
+    font-size: 85%;
+    margin-right: 10px;
+}
+
+
+/*=========================
+header
+=========================*/
+
+.languages_login {
+    text-align: right;
+}
+
+.login {
+    padding: 5px 15px;
+    color: #fff;
+    border-radius: 2px;
+    background-color: #199819;
+    transition: 0.3s;
+}
+
+.login:hover {
+    background-color: #39aa39;
+    text-decoration: none;
+}
+
+.languages {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0;
+    width: 30px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.languages.vietnamese {
+    background: url(../../assets/images/icon/ic_flag_vietnamese.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.languages.english {
+    background: url(../../assets/images/icon/ic_flag_english.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.dashboard #logo {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.dashboard #logo a {
+    display: inline-block;
+    width: 170px;
+    height: 61px;
+    font-size: 0;
+    background: url(../../assets/images/logo/abba.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.dashboard .languages_login {
+    display: inline-block;
+    float: right;
+    margin-top: 30px;
+}
+
+
+/*@media query*/
+
+@media screen and (max-width: 1049px) {
+    .outer_content_box {
+        margin: 50px 10px 10px;
+    }
+}
+
+@media screen and (max-width: 690px) {
+    /*=========================
+    header
+    =========================*/
+    .dashboard #logo a {
+        width: 130px;
+        height: 46px;
+    }
+    .outer_content_box {
+        padding: 10px 6px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .outer_content_box {
+        margin: 30px 10px 10px;
+    }
+    .dashboard #logo a {
+        width: 100px;
+        height: 35px;
+    }
+    .login {
+        padding: 5px 7px;
+    }
+}

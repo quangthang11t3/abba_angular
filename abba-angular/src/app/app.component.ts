@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @Component({
   selector: 'app-root',
