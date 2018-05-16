@@ -7,30 +7,31 @@ import { DataTableDirective } from 'angular-datatables';
   styleUrls: ['./earnings.component.css']
 })
 export class EarningsComponent implements OnInit {
+  rows = [
+    // { date: '2018-04-27', name1: '0'}
+    { date: '2018-04-27', 'Số lần tương tác web': '0'}
+    
+  ];
+  columns = [
+    { prop: 'date' },
+    { name: 'Số lần tương tác web' }
+    // { name: 'name1' }
+    
+    // { name: 'Số lần tương tác web' },
+    // { name: 'Số lần like fanpage' },
+    // { name: 'Số lần xem video' },
+    // { name: 'Số lần chia sẻ' },
+    // { name: 'Số coin đổi thưởng' },
+    // { name: 'Tổng coin kiếm được' },
+    // { name: 'Số nhà QC hoạt động' }    
+  ];
 
-  @ViewChild(DataTableDirective)
-  private datatableElement: DataTableDirective;
+  constructor() { }
 
-  dtOptions: DataTables.Settings = {};
-
-  displayToConsole(datatableElement: DataTableDirective): void {
-    datatableElement.dtInstance.then((dtInstance: DataTables.Api) => console.log(dtInstance));
-  }
-
-  ngOnInit(): void {
-    this.dtOptions = {
-      ajax: 'data/data.json',
-      columns: [{
-        title: 'ID',
-        data: 'id'
-      }, {
-        title: 'First name',
-        data: 'firstName'
-      }, {
-        title: 'Last name',
-        data: 'lastName'
-      }]
-    };
+  ngOnInit() {
+    $(document).ready(function () {
+      $('.earnings').addClass('active').attr("selected", "selected");
+    });
   }
 
 }

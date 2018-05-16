@@ -90,6 +90,11 @@ export class OverviewComponent implements OnInit {
         }
       ]
     }
+
+
+    $(document).ready(function () {
+      $('.overview').addClass('active').attr("selected", "selected");
+    });
   }
 
 }

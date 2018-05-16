@@ -1,0 +1,34 @@
+/*=========================
+common
+=========================*/
+
+.inner_content_box {
+    background-color: #fff;
+    border-radius: 6px;
+    border: solid 1px #ddd;
+    margin: 6px 0;
+    padding: 20px 15px;
+    min-height: 610px;
+}
+
+span.glyphicon {
+    font-size: 85%;
+    margin-right: 10px;
+}
+
+h2 {
+    color: #555;
+    font-size: 18px;
+    margin: 15px 0;
+    text-transform: uppercase;
+}
+
+.handy_dates {
+    padding: 0;
+}
+
+@media screen and (max-width: 690px) {
+    .reset_mg {
+        margin: 0;
+    }
+}
