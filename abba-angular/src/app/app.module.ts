@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { DataTablesModule } from 'angular-datatables';
 import { AppComponent } from './app.component';
@@ -15,6 +16,9 @@ import { OverviewComponent } from './dashboard/ads/overview/overview.component';
 import { EarningsComponent } from './dashboard/ads/earnings/earnings.component';
 import { ExchangeComponent } from './dashboard/ads/exchange/exchange.component';
 import { OtherComponent } from './dashboard/ads/other/other.component';
+import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
+import { NavSPComponent } from './dashboard/nav-sp/nav-sp.component';
+import { ReportFilterComponent } from './dashboard/report-filter/report-filter.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +32,15 @@ import { OtherComponent } from './dashboard/ads/other/other.component';
     OverviewComponent,
     EarningsComponent,
     ExchangeComponent,
-    OtherComponent
+    OtherComponent,
+    SidebarComponent,
+    NavSPComponent,
+    ReportFilterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DataTablesModule,
+    NgxDatatableModule,
     NgxEchartsModule
   ],
   providers: [],

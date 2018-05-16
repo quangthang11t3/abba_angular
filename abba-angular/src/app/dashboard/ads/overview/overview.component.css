@@ -18,61 +18,6 @@ span.glyphicon {
 
 
 /*=========================
-sidebar
-=========================*/
-
-.left_nav_dropdown {
-    display: none;
-}
-
-.sidebar {
-    padding: 0;
-}
-
-a:hover,
-a:focus {
-    text-decoration: none;
-}
-
-.sidebar_tab_item a {
-    display: block;
-    padding: 10px;
-    text-transform: capitalize;
-    border: solid 1px #f3f3f3;
-    transition: background-color 0.3s;
-}
-
-.sidebar_tab_item.active a,
-.sidebar_tab_item:hover a {
-    background-color: #fff;
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
-    border: solid 1px #ddd;
-    border-right: none;
-    position: relative;
-}
-
-.sidebar_tab_item.active a:after {
-    position: absolute;
-    content: "";
-    top: 0;
-    bottom: 0;
-    right: -1px;
-    width: 1px;
-    background-color: #ffffff;
-    z-index: 2;
-}
-
-.sidebar span.glyphicon {
-    margin-right: 10px;
-}
-
-.sidebar_tab_ttl {
-    text-transform: uppercase;
-}
-
-
-/*=========================
 main
 =========================*/
 

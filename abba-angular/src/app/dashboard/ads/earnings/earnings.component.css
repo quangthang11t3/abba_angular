@@ -1,20 +1,94 @@
-/*inner_content_box*/
+/*=========================
+common
+=========================*/
 
-.handy_dates {
-    padding: 0;
+.inner_content_box {
+    background-color: #fff;
+    border-radius: 6px;
+    border: solid 1px #ddd;
+    margin: 6px 0;
+    padding: 20px 15px;
+    min-height: 610px;
+}
+
+span.glyphicon {
+    font-size: 85%;
+    margin-right: 10px;
+}
+
+
+/*=========================
+main
+=========================*/
+
+
+/*overview*/
+
+h2 {
+    color: #555;
+    font-size: 18px;
+    margin: 15px 0;
+    text-transform: uppercase;
+}
+
+.dashboard_tri_feature_box_top {
+    text-align: center;
+    background: #9ed683;
+    ;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    margin-bottom: 4px;
+}
+
+.dashboard_tri_feature_box_top div {
+    padding: 10px 12px;
+}
+
+.dashboard_tri_feature_box_top div span {
+    font-size: 36px;
+}
+
+.dashboard_tri_feature_box_bottom_left {
+    text-align: center;
+    float: left;
+    width: 50%;
+}
+
+.dashboard_tri_feature_box_bottom_left div {
+    background: #e5f6dd;
+    border-bottom-left-radius: 6px;
+    margin-right: 2px;
+}
+
+.dashboard_tri_feature_box_bottom_left div div,
+.dashboard_tri_feature_box_bottom_right div div {
+    padding: 10px 12px;
+    line-height: 24px;
+}
+
+.dashboard_tri_feature_box_bottom_left div div span,
+.dashboard_tri_feature_box_bottom_right div div span {
+    font-size: 22px;
+}
+
+.dashboard_tri_feature_box_bottom_right {
+    text-align: center;
+    float: right;
+    width: 50%;
+}
+
+.dashboard_tri_feature_box_bottom_right div {
+    background: #e5f6dd;
+    border-bottom-right-radius: 6px;
+    margin-left: 2px;
 }
 
 .dataTable_cnt {
     margin-top: 30px;
 }
 
-.dataTables_length,
-.dataTables_filter,
-.dataTables_info,
-.dataTables_paginate {
-    display: none;
-}
-
-table.dataTable thead th.dt-head-left {
-    text-align: right;
+@media screen and (max-width: 690px) {
+    .inner_content_box {
+        padding: 20px 10px;
+    }
 }

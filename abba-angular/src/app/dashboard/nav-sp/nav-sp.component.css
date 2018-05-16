@@ -1,0 +1,9 @@
+.left_nav_dropdown {
+    display: none;
+}
+
+@media screen and (max-width: 690px) {
+    .left_nav_dropdown {
+        display: block;
+    }
+}
