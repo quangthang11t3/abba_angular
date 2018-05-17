@@ -1,0 +1,54 @@
+<app-nav-sp></app-nav-sp>
+<app-sidebar></app-sidebar>
+<main class="inner_content_box col-sm-9 col-md-10 col-lg-10">
+    <div class="feature">
+        <div class="dataTable_cnt">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#add_promotion" data-toggle="tab">Thêm khuyến mãi</a></li>
+                <li><a href="#present_promotion" data-toggle="tab">Khuyễn mãi hiện có</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="add_promotion">
+                    <div id="add_promotion_wrapper" class="data_cnt">
+                        <app-promotion-setting></app-promotion-setting>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="present_promotion">
+                    <div id="present_promotion_wrapper" class="data_cnt">
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <!-- tabs left -->
+                                <div class="tabbable tabs-left">
+                                    <ul class="nav nav-tabs">
+                                        <li><a href="#a" data-toggle="tab">Khuyến mãi 5%</a></li>
+                                        <li class="active"><a href="#b" data-toggle="tab">Khuyến mãi 10%</a></li>
+                                        <li><a href="#c" data-toggle="tab">Khuyến mãi 15%</a></li>
+                                        <li><a href="#d" data-toggle="tab">Khuyến mãi 20%</a></li>
+                                    </ul>
+                                    <div class="tab-content data_cnt_inner">
+                                        <div class="tab-pane fade in active" id="a">
+                                            <app-promotion-setting></app-promotion-setting>
+                                        </div>
+                                        <div class="tab-pane fade" id="b">
+                                            <app-promotion-setting></app-promotion-setting>
+                                        </div>
+                                        <div class="tab-pane fade" id="c">
+                                            <app-promotion-setting></app-promotion-setting>
+                                        </div>
+                                        <div class="tab-pane fade" id="d">
+                                            <app-promotion-setting></app-promotion-setting>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /tabs -->
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
