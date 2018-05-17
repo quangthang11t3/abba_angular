@@ -28,7 +28,9 @@
     "datatables.net-dt": "^1.10.16",
     "echarts": "^4.1.0",
     "jquery": "^3.3.1",
+    "mydatepicker": "^2.6.3",
     "ngx-echarts": "^3.0.0",
+    "ngx-mydatepicker": "^2.4.5",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },

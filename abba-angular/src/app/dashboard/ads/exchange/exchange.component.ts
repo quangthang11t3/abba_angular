@@ -10,6 +10,9 @@ export class ExchangeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    $(document).ready(function () {
+      $('.exchange').addClass('active').attr("selected", "selected");
+    });
   }
 
 }

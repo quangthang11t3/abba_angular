@@ -1,3 +1,49 @@
-<p>
-  other works!
-</p>
+<app-nav-sp></app-nav-sp>
+<app-sidebar></app-sidebar>
+<main class="inner_content_box col-sm-9 col-md-10 col-lg-10">
+    <div class="earnings">
+        <app-report-filter></app-report-filter>
+        <div class="dataTable_cnt">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#overview_tab" data-toggle="tab">Tổng quan</a></li>
+                <li><a href="#account_tab" data-toggle="tab">Tài khoản</a></li>
+                <li><a href="#app_tab" data-toggle="tab">Ứng dụng</a></li>
+                <li><a href="#adver_tab" data-toggle="tab">Nhà quảng cáo</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="overview_tab">
+                    <div id="overview_wrapper" class="dataTables_wrapper no-footer">
+                        <div id="overview">
+                            <ngx-datatable [rows]="rows" [columns]="columns">
+                            </ngx-datatable>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="account_tab">
+                    <div id="account_wrapper" class="dataTables_wrapper no-footer">
+                        <div id="account">
+                            <ngx-datatable [rows]="rows" [columns]="columns">
+                            </ngx-datatable>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="app_tab">
+                    <div id="app_wrapper" class="dataTables_wrapper no-footer">
+                        <div id="app">
+                            <ngx-datatable [rows]="rows" [columns]="columns">
+                            </ngx-datatable>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="adver_tab">
+                    <div id="adver_wrapper" class="dataTables_wrapper no-footer">
+                        <div id="adver">
+                            <ngx-datatable [rows]="rows" [columns]="columns">
+                            </ngx-datatable>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

@@ -19,6 +19,8 @@ import { OtherComponent } from './dashboard/ads/other/other.component';
 import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
 import { NavSPComponent } from './dashboard/nav-sp/nav-sp.component';
 import { ReportFilterComponent } from './dashboard/report-filter/report-filter.component';
+import { FeatureComponent } from './dashboard/ads/feature/feature.component';
+import { PromotionSettingComponent } from './dashboard/ads/promotion-setting/promotion-setting.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { ReportFilterComponent } from './dashboard/report-filter/report-filter.c
     OtherComponent,
     SidebarComponent,
     NavSPComponent,
-    ReportFilterComponent
+    ReportFilterComponent,
+    FeatureComponent,
+    PromotionSettingComponent
   ],
   imports: [
     BrowserModule,
