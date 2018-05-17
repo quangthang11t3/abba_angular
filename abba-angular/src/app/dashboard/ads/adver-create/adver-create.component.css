@@ -1,0 +1,85 @@
+.state1 {
+    display: none;
+}
+
+.adver-create {
+    padding: 30px 10px;
+}
+
+.item_adver {
+    text-align: center;
+    padding: 0 30px;
+}
+
+.item_adver_inner {
+    position: relative;
+    background-color: rgb(239, 247, 250);
+    height: 390px;
+    padding: 20px 35px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2);
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.item_adver_inner:hover {
+    background-color: #d1e9f0;
+}
+
+.item_adver_inner .col_cnt {
+    border: solid 1px #000;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 30px;
+    min-height: 100px;
+}
+
+.item_adver_inner .btn_start {
+    width: 100px;
+    left: calc(50% - 50px);
+}
+
+.item_adver_inner .btn_create {
+    width: 120px;
+    left: calc(50% - 60px);
+}
+
+.item_adver_inner .btn_start,
+.item_adver_inner .btn_create {
+    position: absolute;
+    bottom: 20px;
+}
+
+.state2 .form-group:first-child {
+    margin-top: 30px;
+}
+
+
+/* icon */
+
+.icon_adver {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    margin-bottom: 20px;
+}
+
+.ic_setting {
+    background: url(../../../../assets/images/icon/ic_setting.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.ic_adver {
+    background: url(../../../../assets/images/icon/ic_website.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.ic_facebook {
+    background: url(../../../../assets/images/icon/ic_facebook2.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
