@@ -21,6 +21,10 @@ import { NavSPComponent } from './dashboard/nav-sp/nav-sp.component';
 import { ReportFilterComponent } from './dashboard/report-filter/report-filter.component';
 import { FeatureComponent } from './dashboard/ads/feature/feature.component';
 import { PromotionSettingComponent } from './dashboard/ads/promotion-setting/promotion-setting.component';
+import { NgxMyDatePickerModule  } from 'ngx-mydatepicker';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { AdverCreateComponent } from './dashboard/ads/adver-create/adver-create.component';
 
 @NgModule({
   declarations: [
@@ -39,13 +43,17 @@ import { PromotionSettingComponent } from './dashboard/ads/promotion-setting/pro
     NavSPComponent,
     ReportFilterComponent,
     FeatureComponent,
-    PromotionSettingComponent
+    PromotionSettingComponent,
+    AdverCreateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxDatatableModule,
-    NgxEchartsModule
+    NgxEchartsModule,
+    CommonModule,
+    FormsModule,
+    NgxMyDatePickerModule.forRoot() 
   ],
   providers: [],
   bootstrap: [AppComponent]
