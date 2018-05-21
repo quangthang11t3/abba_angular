@@ -1,8 +1,16 @@
 .state1 {
+    /* display: none; */
+}
+
+.state2 {
     display: none;
 }
 
 .state_1_2 {
+    /* display: none; */
+}
+
+.state3 {
     display: none;
 }
 
@@ -36,6 +44,10 @@
 
 
 /* common */
+
+.fwb {
+    font-weight: bold;
+}
 
 .bdb {
     border-bottom: solid 1px #e3eaf3;
@@ -133,7 +145,34 @@
 }
 
 .ttl_question {
+    font-size: 15px;
     padding: 15px 20px;
     font-weight: bold;
     background-color: #f2f6fa;
+}
+
+.more_info {
+    border: solid 1px #e0e0e0;
+    padding: 0 10px;
+    max-height: 160px;
+    overflow-y: scroll;
+}
+
+.infor_state {
+    background-color: #f2f6fa;
+    padding: 15px 15px 10px;
+}
+
+.infor_state_ttl {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.infor_state ul {
+    font-weight: bold;
+}
+
+.infor_state li {
+    font-weight: normal;
+    margin-left: 28px;
 }
