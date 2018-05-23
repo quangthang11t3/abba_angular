@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 
 
 
-
+    var $this = this;
 
     $(document).ready(function(){
       var isTablet = false;
@@ -193,7 +193,7 @@ export class HomeComponent implements OnInit {
       });
   
       // call function    
-      navigation();
+      navigation();    
     });
   }
 }

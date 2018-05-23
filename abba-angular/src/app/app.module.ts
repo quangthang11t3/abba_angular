@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule }    from '@angular/common/http';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgxEchartsModule } from 'ngx-echarts';
@@ -23,8 +24,11 @@ import { FeatureComponent } from './dashboard/ads/feature/feature.component';
 import { PromotionSettingComponent } from './dashboard/ads/promotion-setting/promotion-setting.component';
 import { NgxMyDatePickerModule  } from 'ngx-mydatepicker';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdverCreateComponent } from './dashboard/ads/adver-create/adver-create.component';
+import { LoginService } from './shared/services/login.service';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -47,15 +51,21 @@ import { AdverCreateComponent } from './dashboard/ads/adver-create/adver-create.
     AdverCreateComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     NgxDatatableModule,
     NgxEchartsModule,
     CommonModule,
     FormsModule,
-    NgxMyDatePickerModule.forRoot() 
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    NgxMyDatePickerModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
