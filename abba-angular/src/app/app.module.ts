@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { CountryPickerModule } from 'ngx-country-picker';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { DataTablesModule } from 'angular-datatables';
@@ -25,6 +26,7 @@ import { NgxMyDatePickerModule  } from 'ngx-mydatepicker';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AdverCreateComponent } from './dashboard/ads/adver-create/adver-create.component';
+// import { GocarIntlTelInputComponent } from './intl-telephone/intl-telephone.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { AdverCreateComponent } from './dashboard/ads/adver-create/adver-create.
     ReportFilterComponent,
     FeatureComponent,
     PromotionSettingComponent,
-    AdverCreateComponent
+    AdverCreateComponent,
+    // GocarIntlTelInputComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ import { AdverCreateComponent } from './dashboard/ads/adver-create/adver-create.
     NgxEchartsModule,
     CommonModule,
     FormsModule,
-    NgxMyDatePickerModule.forRoot() 
+    NgxMyDatePickerModule.forRoot() ,
+    CountryPickerModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
