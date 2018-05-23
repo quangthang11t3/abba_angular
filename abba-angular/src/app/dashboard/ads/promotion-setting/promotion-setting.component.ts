@@ -10,6 +10,9 @@ export class PromotionSettingComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    $(document).ready(function () {
+      $('.filter_ttl, .handy_dates_wrap, .btn_update').hide();
+    });
   }
 
 }

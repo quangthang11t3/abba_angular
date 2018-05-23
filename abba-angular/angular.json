@@ -37,7 +37,11 @@
                             "node_modules/echarts/dist/echarts.min.js",
                             "src/assets/js/bootstrap.min.js",
                             "src/assets/js/moment.js",
-                            "src/assets/js/bootstrap-datetimepicker.min.js"
+                            "src/assets/js/bootstrap-datetimepicker.min.js",
+                            "src/assets/js/yii.activeForm.js",
+                            "src/assets/js/utility.js",
+                            "src/assets/js/canvasbg.js",
+                            "src/assets/js/login.js"
                         ]
                     },
                     "configurations": {

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule }    from '@angular/common/http';
 
+import { CountryPickerModule } from 'ngx-country-picker';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { DataTablesModule } from 'angular-datatables';
@@ -29,6 +30,7 @@ import { AdverCreateComponent } from './dashboard/ads/adver-create/adver-create.
 import { LoginService } from './shared/services/login.service';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { GocarIntlTelInputComponent } from './intl-telephone/intl-telephone.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FeatureComponent,
     PromotionSettingComponent,
     AdverCreateComponent
+    // GocarIntlTelInputComponent
   ],
   imports: [
     HttpClientModule,
@@ -62,10 +65,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     NgxMyDatePickerModule.forRoot(),
+    CountryPickerModule.forRoot()
   ],
   providers: [
     LoginService
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

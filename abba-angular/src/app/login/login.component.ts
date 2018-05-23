@@ -3,6 +3,8 @@ import { LoginService } from '../shared/services/login.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { ICountry } from 'ngx-country-picker';
+import { CountryPickerService } from 'ngx-country-picker';
 
 @Component({
   selector: 'app-login',
@@ -18,13 +20,17 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   msg : string;
+  public countries: ICountry[] = [];
 
   constructor(
     private router: Router,
     private loginService: LoginService,
-    private toastr: ToastrService){}
+    private toastr: ToastrService,
+    protected countryPicker: CountryPickerService){}
 
   ngOnInit() {
+    this.countryPicker.getCountries()
+      .subscribe((countries: ICountry[]) => this.countries = countries);
     $('#signuplink').click(function(){
       $('#loginbox').hide(); 
       $('#signupbox').show()
@@ -83,5 +89,4 @@ export class LoginComponent implements OnInit {
       this.toastr.success("asfasdf");
     });
   }
-
 }
