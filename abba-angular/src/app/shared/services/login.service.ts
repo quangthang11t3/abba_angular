@@ -17,9 +17,9 @@ export class LoginService {
     constructor( private http: HttpClient ) { 
     }
 
-    login(username: string, password: string): Observable<Response> {
+    login(email: string, password: string): Observable<Response> {
         return this.http.post(loginUrl, JSON.stringify({
-            username: username,
+            email: email,
             password: password
         }) , httpOptions).pipe(
             tap((response: Response)=>{

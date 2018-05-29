@@ -30,6 +30,7 @@ import { AdverCreateComponent } from './dashboard/ads/adver-create/adver-create.
 import { LoginService } from './shared/services/login.service';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoadingModule } from 'ngx-loading';
 // import { GocarIntlTelInputComponent } from './intl-telephone/intl-telephone.component';
 
 @NgModule({
@@ -63,6 +64,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    LoadingModule,
     ToastrModule.forRoot(),
     NgxMyDatePickerModule.forRoot(),
     CountryPickerModule.forRoot()

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ICountry } from 'ngx-country-picker';
 import { CountryPickerService } from 'ngx-country-picker';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   msg : string;
   public countries: ICountry[] = [];
+  public loading = false;
 
   constructor(
     private router: Router,
@@ -29,6 +31,10 @@ export class LoginComponent implements OnInit {
     protected countryPicker: CountryPickerService){}
 
   ngOnInit() {
+    let user = localStorage.getItem('user');
+    if(user) {
+      this.router.navigate(['dashboard']);
+    }
     this.countryPicker.getCountries()
       .subscribe((countries: ICountry[]) => this.countries = countries);
     $('#signuplink').click(function(){
@@ -72,21 +78,28 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log('Login');
-    this.toastr.success('Login');
-    this.loginService.login('viettienbk@gmail.com', '123456').subscribe((response)=> {
+    this.loading = true;
+    let data = this.loginForm.value;
+    this.loginService.login(data.email, data.password).subscribe((response)=> {
+      this.loading = false;
       if(response['success']){
-        console.log('login thanh cong');
+        let user = new User(response['data'].data);
+        let userJson = JSON.stringify(user);
+        localStorage.setItem('user', userJson);
+        this.router.navigate(['dashboard']);
       } else{
-        console.log('login that bai');
-        console.log(response);
-        // let errors = response['error'];
-        // console.log('loi:', errors[0].msg);
+        let errors = response['error'];
+        if(errors instanceof Object){
+          console.log(errors);
+          this.toastr.error(errors[0].msg);
+        } else {
+          this.toastr.error(errors);
+        }
       }
     },
     error=> {
-      console.log('error:', error.message);
-      this.toastr.success("asfasdf");
+      this.loading = false;
+      this.toastr.error('Network error');
     });
   }
 }
