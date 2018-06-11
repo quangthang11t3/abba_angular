@@ -11,9 +11,7 @@ import { FeatureComponent } from './dashboard/ads/feature/feature.component';
 import { ExchangeComponent } from './dashboard/ads/exchange/exchange.component';
 import { OtherComponent } from './dashboard/ads/other/other.component';
 import { AdverCreateComponent } from './dashboard/ads/adver-create/adver-create.component';
-
-
-
+import { DepositComponent } from './dashboard/ads/deposit/deposit.component';
 
 
 const routes: Routes = [
@@ -27,7 +25,8 @@ const routes: Routes = [
           { path: 'earnings', component: EarningsComponent },
           { path: 'exchange', component: ExchangeComponent },
           { path: 'promotion', component: FeatureComponent }, 
-          { path: 'adver-create', component: AdverCreateComponent },                             
+          { path: 'adver-create', component: AdverCreateComponent }, 
+          { path: 'deposit', component: DepositComponent },                                                                   
           { path: 'other', component: OtherComponent }          
         ]
       },
