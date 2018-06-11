@@ -1,0 +1,52 @@
+.media-left,
+.media-right,
+.media-body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.media-left {
+    padding-right: 30px;
+}
+
+.deposit_ttl {
+    text-align: center;
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.item_method {
+    padding: 30px;
+}
+
+.item_method_inner a {
+    background: white;
+    display: block;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 30px;
+    height: 100%;
+    -webkit-transition: 0.3s ease all;
+    -o-transition: 0.3s ease all;
+    -moz-transition: 0.3s ease all;
+    transition: 0.3s ease all;
+    line-height: 26px;
+    font-size: 26px;
+}
+
+.media,
+.media-body {
+    zoom: 1;
+    overflow: hidden;
+}
+
+.item_method_inner:hover a {
+    -moz-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    -webkit-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    transform: scale(1.02);
+    border: 1px solid #fff;
+    text-decoration: none;
+}

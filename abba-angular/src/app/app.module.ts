@@ -26,6 +26,8 @@ import { NgxMyDatePickerModule  } from 'ngx-mydatepicker';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AdverCreateComponent } from './dashboard/ads/adver-create/adver-create.component';
+import { BtnDepositComponent } from './dashboard/btn-deposit/btn-deposit.component';
+import { DepositComponent } from './dashboard/ads/deposit/deposit.component';
 // import { GocarIntlTelInputComponent } from './intl-telephone/intl-telephone.component';
 
 @NgModule({
@@ -47,6 +49,8 @@ import { AdverCreateComponent } from './dashboard/ads/adver-create/adver-create.
     FeatureComponent,
     PromotionSettingComponent,
     AdverCreateComponent,
+    BtnDepositComponent,
+    DepositComponent,
     // GocarIntlTelInputComponent
   ],
   imports: [
