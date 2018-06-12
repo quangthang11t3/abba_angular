@@ -1,34 +1,53 @@
 <app-nav-sp></app-nav-sp>
 <app-sidebar></app-sidebar>
 <main class="inner_content_box col-sm-9 col-md-10 col-lg-10">
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
     <div class="adver-create">
         <div class="list_item_adver">
             <div class="row state_1_2">
                 <div class="item_adver col-xs-6 col-sm-4">
                     <div class="item_adver_inner">
-                        <div class="setting1 state1">
+                        <div class="setting1 app_state1">
                             <i class="icon_adver ic_setting">&nbsp;</i>
                             <h4 class="col_ttl">Cài đặt ứng dụng</h4>
                             <p class="col_cnt">Hình thức quảng cáo tăng lượng tải và keyword về app của doanh nghiệp/ cửa hàng.</p>
-                            <a class="btn_start btn btn-primary">Bắt đầu</a>
+                            <a class="btn_start btn btn-primary" (click)="step2('app')">Bắt đầu</a>
                         </div>
-                        <div class="setting2 state2">
+                        <div class="setting2 app_state2">
                             <h4 class="col_ttl">Cài đặt ứng dụng</h4>
                             <div class="form-group">
-                                <form action="#">
+                                <form action="#" [formGroup]="appForm" #formDir="ngForm">
                                     <div class="form-group">
-                                        <select class="form-control" id="">
-                                        <option>Android</option>
-                                        <option>iOS</option>
+                                        <select class="form-control" id="" formControlName="appType">
+                                        <option [ngValue]="0">Android</option>
+                                        <option [ngValue]="1">iOS</option>
                                       </select>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" placeholder="Nhập tên gói hoặc nhà xuất bản" class="form-control" id="">
+                                        <input type="text" placeholder="Nhập tên gói hoặc nhà xuất bản" class="form-control" id="" formControlName="appId">
+                                    </div>
+                                    <div *ngIf="appId.invalid && appId.touched" class="vali_error">
+
+                                        <div *ngIf="appId.errors.required">
+                                            * appId is required.
+                                        </div>
+                                        <div *ngIf="appId.errors.minlength">
+                                            * appId must be at least 6 characters long.
+                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" placeholder="Nhập tên chiến dịch" class="form-control" id="">
+                                        <input type="text" placeholder="Nhập tên chiến dịch" class="form-control" id="" formControlName="appCampaign">
                                     </div>
-                                    <button type="submit" class="btn_create btn btn-primary">Tạo quảng cáo</button>
+                                    <div *ngIf="appCampaign.invalid && appCampaign.touched" class="vali_error">
+
+                                        <div *ngIf="appCampaign.errors.required">
+                                            * appCampaign is required.
+                                        </div>
+                                        <div *ngIf="appCampaign.errors.minlength">
+                                            * appCampaign must be at least 6 characters long.
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn_create btn btn-primary" [disabled]="appForm.invalid" (click)="registerApp()">Tạo quảng cáo</button>
                                 </form>
                             </div>
                         </div>
@@ -36,16 +55,16 @@
                 </div>
                 <div class="item_adver col-xs-6 col-sm-4">
                     <div class="item_adver_inner">
-                        <div class="website1 state1">
+                        <div class="website1 web_state1">
                             <i class="icon_adver ic_adver">&nbsp;</i>
                             <h4 class="col_ttl">Quảng cáo website</h4>
                             <p class="col_cnt">Hình thức quảng cáo tăng lượng truy cập về website của doanh nghiệp/ cửa hàng.</p>
-                            <a class="btn_start btn btn-primary">Bắt đầu</a>
+                            <a class="btn_start btn btn-primary" (click)="step2('web')">Bắt đầu</a>
                         </div>
-                        <div class="website2 state2">
+                        <div class="website2 web_state2">
                             <h4 class="col_ttl">Quảng cáo Website/ Youtube</h4>
                             <div class="form-group">
-                                <form action="#">
+                                <form action="#" [formGroup]="webForm" #formDir="ngForm">
                                     <div class="form-group">
                                         <select class="form-control" id="">
                                         <option>Website</option>
@@ -53,12 +72,30 @@
                                       </select>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" placeholder="Liên kết website" class="form-control" id="">
+                                        <input type="text" placeholder="Liên kết website" class="form-control" id="" formControlName="webUrl">
+                                    </div>
+                                    <div *ngIf="webUrl.invalid && webUrl.touched" class="vali_error">
+
+                                        <div *ngIf="webUrl.errors.required">
+                                            * webUrl is required.
+                                        </div>
+                                        <div *ngIf="webUrl.errors.minlength">
+                                            * webUrl must be at least 6 characters long.
+                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" placeholder="Nhập tên chiến dịch" class="form-control" id="">
+                                        <input type="text" placeholder="Nhập tên chiến dịch" class="form-control" id="" formControlName="webCampaign">
                                     </div>
-                                    <button type="submit" class="btn_create btn btn-primary">Tạo quảng cáo</button>
+                                    <div *ngIf="webCampaign.invalid && webCampaign.touched" class="vali_error">
+
+                                        <div *ngIf="webCampaign.errors.required">
+                                            * webCampaign is required.
+                                        </div>
+                                        <div *ngIf="webCampaign.errors.minlength">
+                                            * webCampaign must be at least 6 characters long.
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn_create btn btn-primary" [disabled]="webForm.invalid" (click)="registerWeb()">Tạo quảng cáo</button>
                                 </form>
                             </div>
                         </div>
@@ -67,16 +104,16 @@
                 <!-- Optional: clear the XS cols if their content doesn't match in height -->
                 <div class="item_adver col-xs-6 col-sm-4">
                     <div class="item_adver_inner">
-                        <div class="facebook1 state1">
+                        <div class="facebook1 fb_state1">
                             <i class="icon_adver ic_facebook">&nbsp;</i>
                             <h4 class="col_ttl">Quảng cáo Facebook</h4>
                             <p class="col_cnt">Hình thức quảng cáo tăng lượng truy cập like fanpage, bài viết đánh sao về mạng xã hội của doanh nghiệp/ cửa hàng.</p>
-                            <a class="btn_start btn btn-primary">Bắt đầu</a>
+                            <a class="btn_start btn btn-primary" (click)="step2('fb')">Bắt đầu</a>
                         </div>
-                        <div class="facebook2 state2">
+                        <div class="facebook2 fb_state2">
                             <h4 class="col_ttl">Quảng cáo Facebook</h4>
                             <div class="form-group">
-                                <form action="#">
+                                <form action="#" [formGroup]="fbForm" #formDir="ngForm">
                                     <div class="form-group">
                                         <select class="form-control" id="">
                                         <option>Fanpage</option>
@@ -84,9 +121,30 @@
                                       </select>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" placeholder="Nhập tên chiến dịch" class="form-control" id="">
+                                        <input type="text" placeholder="Liên kết facebook" class="form-control" id="" formControlName="fbUrl">
                                     </div>
-                                    <button type="submit" class="btn_create btn btn-primary">Tạo quảng cáo</button>
+                                    <div *ngIf="fbUrl.invalid && fbUrl.touched" class="vali_error">
+
+                                        <div *ngIf="fbUrl.errors.required">
+                                            * fbUrl is required.
+                                        </div>
+                                        <div *ngIf="fbUrl.errors.minlength">
+                                            * fbUrl must be at least 6 characters long.
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Nhập tên chiến dịch" class="form-control" id="" formControlName="fbCampaign">
+                                    </div>
+                                    <div *ngIf="fbCampaign.invalid && fbCampaign.touched" class="vali_error">
+
+                                        <div *ngIf="fbCampaign.errors.required">
+                                            * fbCampaign is required.
+                                        </div>
+                                        <div *ngIf="fbCampaign.errors.minlength">
+                                            * fbCampaign must be at least 6 characters long.
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn_create btn btn-primary" [disabled]="fbForm.invalid" (click)="registerFb()">Tạo quảng cáo</button>
                                 </form>
                             </div>
                         </div>

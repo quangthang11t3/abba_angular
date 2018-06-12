@@ -45,9 +45,7 @@ export class OtherComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    $(document).ready(function () {
-      $('.other').addClass('active').attr("selected", "selected");
-    });
+    $('.other').addClass('active').attr("selected", "selected");
   }
 
 }

@@ -1,8 +1,32 @@
-.state1 {
+/*  app */
+
+.app_state1 {
     /* display: none; */
 }
 
-.state2 {
+.app_state2 {
+    display: none;
+}
+
+
+/*  web */
+
+.web_state1 {
+    /* display: none; */
+}
+
+.web_state2 {
+    display: none;
+}
+
+
+/*  fb  */
+
+.fb_state1 {
+    /* display: none; */
+}
+
+.fb_state2 {
     display: none;
 }
 

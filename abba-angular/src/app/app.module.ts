@@ -31,6 +31,11 @@ import { LoginService } from './shared/services/login.service';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadingModule } from 'ngx-loading';
+import { AdsService } from './shared/services/ads.service';
+import { LocalBankService } from './shared/services/localbank.service';
+import { AuthService } from './shared/services/auth.service';
+import {CustExtBrowserXhr} from './shared/commons/cust-ext-browser-xhr';
+import { BrowserXhr } from '@angular/http';
 // import { GocarIntlTelInputComponent } from './intl-telephone/intl-telephone.component';
 
 @NgModule({
@@ -70,7 +75,11 @@ import { LoadingModule } from 'ngx-loading';
     CountryPickerModule.forRoot()
   ],
   providers: [
-    LoginService
+    {provide: BrowserXhr, useClass:CustExtBrowserXhr},
+    LoginService,
+    AdsService,
+    LocalBankService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
