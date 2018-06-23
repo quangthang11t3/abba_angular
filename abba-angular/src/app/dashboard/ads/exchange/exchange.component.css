@@ -1,0 +1,15 @@
+.link_request_exchg {
+    font-size: 14px;
+    display: inline-block;
+    color: white;
+    background: #0061af;
+    padding: 10px 25px 8px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    margin-bottom: 15px;
+}
