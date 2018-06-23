@@ -9,6 +9,7 @@ import { OverviewComponent } from './dashboard/ads/overview/overview.component';
 import { EarningsComponent } from './dashboard/ads/earnings/earnings.component';
 import { FeatureComponent } from './dashboard/ads/feature/feature.component';
 import { ExchangeComponent } from './dashboard/ads/exchange/exchange.component';
+import { RequestExchangeComponent } from './dashboard/ads/request-exchange/request-exchange.component';
 import { OtherComponent } from './dashboard/ads/other/other.component';
 import { AdverCreateComponent } from './dashboard/ads/adver-create/adver-create.component';
 import { DepositComponent } from './dashboard/ads/deposit/deposit.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
           { path: '', component: OverviewComponent },
           { path: 'earnings', component: EarningsComponent },
           { path: 'exchange', component: ExchangeComponent },
+          { path: 'request-exchange', component: RequestExchangeComponent },          
           { path: 'promotion', component: FeatureComponent }, 
           { path: 'adver-create', component: AdverCreateComponent }, 
           { path: 'deposit', component: DepositComponent },                                                                   
