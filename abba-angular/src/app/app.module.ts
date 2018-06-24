@@ -30,6 +30,8 @@ import { BtnDepositComponent } from './dashboard/btn-deposit/btn-deposit.compone
 import { DepositComponent } from './dashboard/ads/deposit/deposit.component';
 import { RequestExchangeComponent } from './dashboard/ads/request-exchange/request-exchange.component';
 import { PaymentDetailComponent } from './dashboard/ads/payment-detail/payment-detail.component';
+import { ListAppComponent } from './dashboard/ads/list-app/list-app.component';
+import { ManageUserComponent } from './dashboard/ads/manage-user/manage-user.component';
 // import { GocarIntlTelInputComponent } from './intl-telephone/intl-telephone.component';
 
 @NgModule({
@@ -55,6 +57,8 @@ import { PaymentDetailComponent } from './dashboard/ads/payment-detail/payment-d
     DepositComponent,
     RequestExchangeComponent,
     PaymentDetailComponent,
+    ListAppComponent,
+    ManageUserComponent,
     // GocarIntlTelInputComponent
   ],
   imports: [
