@@ -29,9 +29,21 @@ export class RequestPaymentService {
         );
     }
 
+    getCards(page: number): Observable<Response> {
+        const url = config.api_url + `/payment-request/approved?page=${page}`;
+        return this.http.get(url, this.httpOptions).pipe(
+            tap((response: Response)=>{
+                return response;
+            }),
+            catchError(this.handleError)
+        );
+    }
+
     pay(id: string) : Observable<Response> {
         const url = config.api_url + `/payment-request/approve/${id}`;
-        return this.http.put(url, this.httpOptions).pipe(
+        console.log('url:', url);
+        console.log('httpOptions:', this.httpOptions);
+        return this.http.put(url, null, this.httpOptions).pipe(
             tap((response: Response)=>{
                 return response;
             }),
