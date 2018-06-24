@@ -19,9 +19,9 @@
                                 <form action="#" [formGroup]="appForm" #formDir="ngForm">
                                     <div class="form-group">
                                         <select class="form-control" id="" formControlName="appType">
-                                        <option [ngValue]="0">Android</option>
-                                        <option [ngValue]="1">iOS</option>
-                                      </select>
+                                            <option [ngValue]="0">Android</option>
+                                            <option [ngValue]="1">iOS</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <input type="text" placeholder="Nhập tên gói hoặc nhà xuất bản" class="form-control" id="" formControlName="appId">
@@ -67,9 +67,9 @@
                                 <form action="#" [formGroup]="webForm" #formDir="ngForm">
                                     <div class="form-group">
                                         <select class="form-control" id="">
-                                        <option>Website</option>
-                                        <option>Youtube</option>
-                                      </select>
+                                            <option>Website</option>
+                                            <option>Youtube</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <input type="text" placeholder="Liên kết website" class="form-control" id="" formControlName="webUrl">
@@ -152,217 +152,165 @@
                 </div>
             </div>
             <div class="row state3">
-                <div class="row action bdb">
-                    <div class="col-xs-6 col-md-1"><button type="button" class="btn btn-info">Tạo mới</button></div>
-                    <div class="col-xs-6 col-md-4">
-                        <select class="form-control" id="sel1">
-                            <option>Đối tượng quảng cáo</option>
-                            <option>Đối tượng quảng cáo 1</option>
-                            <option>Đối tượng quảng cáo 2</option>
-                            <option>Đối tượng quảng cáo 3</option>
-                        </select></div>
-                    <div class="col-xs-6 col-md-7 text-right"><button type="button" class="btn btn-warning">Tạo nhóm đối tượng</button></div>
-                </div>
-                <div class="row no-gutters mg0">
-                    <p class="ttl_question">Bạn muốn quảng cáo này đến ai?</p>
-                    <div class="col-12 col-sm-6 col-md-8">
-                        <div class="row no-gutters">
-                            <div class="col-6 col-md-4 text-right">
-                                <p class="mgt10">Chọn địa điểm<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-4">
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-                                        Tỉnh/ Thành phố
-                                    </label>
+                <form [formGroup]="adsForm" #formDir="ngForm">
+                    <div class="row no-gutters mg0">
+                        <p class="ttl_question">Bạn muốn quảng cáo này đến ai?</p>
+                        <div class="col-12 col-sm-6 col-md-8">
+                            <div class="row no-gutters">
+                                <div class="col-6 col-md-4 text-right">
+                                    <p class="mgt10">Chọn địa điểm<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
                                 </div>
-                                <input type="text" class="form-control" id="" placeholder="Nhập tên Tỉnh/ Thành phố">
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-4">
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-                                        Vị trí cụ thể
-                                    </label>
-                                </div>
-                                <div class="map">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3833.7640795320226!2d108.22027161531658!3d16.07772774347968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219646b643e31%3A0x4bf059fbffb01881!2zMDIgTMO9IFThu7EgVHLhu41uZywgSOG6o2kgQ2jDonUsIMSQw6AgTuG6tW5nLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1526627595827"
-                                        width="100%" height="auto" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                <div class="col-12 col-sm-6 col-md-4">
+                                    <input type="text" class="form-control" id="" placeholder="Nhập tên Tỉnh/ Thành phố" formControlName="address">
+                                    <div *ngIf="address.invalid && address.touched" class="vali_error">
+
+                                        <div *ngIf="address.errors.required">
+                                            * fbCampaign is required.
+                                        </div>
+                                        <div *ngIf="address.errors.minlength">
+                                            * fbCampaign must be at least 6 characters long.
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row no-gutters mgt20">
-                            <div class="col-6 col-md-4 text-right">
-                                <p>Giới tính<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-4">
-                                <div class="form-group">
-                                    <select class="form-control" id="">
-                                                <option>Tất cả</option>
-                                                <option>Nam</option>
-                                                <option>Nữ</option>
-                                              </select>
+                            <div class="row no-gutters mgt20">
+                                <div class="col-6 col-md-4 text-right">
+                                    <p>Giới tính<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-4">
+                                    <div class="form-group">
+                                        <select class="form-control" id="" formControlName="sex">
+                                            <option [ngValue]="0">Tất cả</option>
+                                            <option [ngValue]="1">Nam</option>
+                                            <option [ngValue]="2">Nữ</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row no-gutters mgt20">
-                            <div class="col-6 col-md-4 text-right">
-                                <p>Độ tuổi<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-4">
-                                <div class="col-12 col-sm-5 col-md-5 pd0">
-                                    <select class="form-control" id="">
-                                        <option>10</option>
-                                        <option>11</option>
-                                        <option>12</option>
-                                    </select>
+                            <div class="row no-gutters mgt20">
+                                <div class="col-6 col-md-4 text-right">
+                                    <p>Độ tuổi<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
                                 </div>
-                                <div class="col-12 col-sm-2 col-md-2 pdt5 text-center">-
-                                </div>
-                                <div class="col-12 col-sm-5 col-md-5 pd0">
-                                    <select class="form-control" id="">
-                                        <option>13</option>
-                                        <option>14</option>
-                                        <option>15</option>
-                                    </select>
+                                <div class="col-12 col-sm-6 col-md-4">
+                                    <div class="col-12 col-sm-5 col-md-5 pd0">
+                                        <select class="form-control" id="" formControlName="ageFrom">
+                                            <option *ngFor="let i of ageFroms" [ngValue]="i">{{i}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 col-sm-2 col-md-2 pdt5 text-center">-
+                                    </div>
+                                    <div class="col-12 col-sm-5 col-md-5 pd0">
+                                        <select class="form-control" id="" formControlName="ageTo">
+                                            <option *ngFor="let i of ageTos" [ngValue]="i">{{i}}</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row no-gutters mgt20">
-                            <div class="col-6 col-md-4 text-right">
-                                <p class="mgt10">Nền tảng<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                        Android
-                                    </label>
+                            <div class="row no-gutters mgt20">
+                                <div class="col-6 col-md-4 text-right">
+                                    <p class="mgt10">Nền tảng<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
                                 </div>
-                                <div class="checkbox">
-                                    <label>
-                                            <input type="checkbox" value="">
+                                <div class="col-12 col-sm-6 col-md-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" formControlName="isAndroid">
+                                            Android
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" formControlName="isIos">
                                             iOS
                                         </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row no-gutters mgt20">
-                            <div class="col-6 col-md-4 text-right">
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-4">
-                                <button type="button" class="btn btn-primary">Lưu nhóm đối tượng</button>
+                        <div class="col-6 col-md-4">
+                            <div class="infor_state">
+                                <p class="infor_state_ttl">Chi tiết đối tượng</p>
+                                <ul>+ Tỉnh/ Thành phố
+                                    <li *ngIf="adsForm.value.address">{{adsForm.value.address}}</li>
+                                </ul>
+                                <ul [ngSwitch]="adsForm.value.sex">+ Giới tính
+                                    <li *ngSwitchCase="0">Tất cả</li>
+                                    <li *ngSwitchCase="1">Nam</li>
+                                    <li *ngSwitchCase="2">Nữ</li>
+                                </ul>
+                                <ul>+ Tuổi
+                                    <li>{{adsForm.value.ageFrom}} - {{adsForm.value.ageTo}}</li>
+                                </ul>
+                                <ul>+ Nền tảng
+                                    <li *ngIf="adsForm.value.isAndroid">Android</li>
+                                    <li *ngIf="adsForm.value.isIos">iOS</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4">
-                        <div class="infor_state">
-                            <p>Số người tiếp cận tiềm năng: <span class="fwb">696,969</span> người</p>
-                            <p class="infor_state_ttl">Chi tiết đối tượng</p>
-                            <ul>+ Tỉnh/ Thành phố
-                                <li>Tất cả</li>
-                            </ul>
-                            <ul>+ Giới tính
-                                <li>Nam</li>
-                                <li>Nữ</li>
-                            </ul>
-                            <ul>+ Tuổi
-                                <li>13 - 65</li>
-                            </ul>
-                            <ul>+ Nền tảng
-                                <li>Android</li>
-                                <li>iOS</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                </form>
+
                 <div class="row no-gutters mgt20">
-                    <p class="ttl_question">Bạn có thể trả bao nhiêu chi phí cho quảng cáo này?</p>
-                    <div class="col-12 col-sm-6 col-md-8">
-                        <div class="row no-gutters">
-                            <div class="col-6 col-md-4 text-right">
-                                <p>Lịch chạy<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-4">
-                                <div class="form-group form-group-sm">
-                                    <div class='input-group date' id='datetimepicker1'>
-                                        <input id="startday" ngx-mydatepicker [(ngModel)]="model" [options]="dateOptions" #start="ngx-mydatepicker" (dateChanged)="onDateChanged($event)" type='text' class="form-control" name="startday" />
-                                        <span class="input-group-btn">
-                            
-                                                    <button type="button" class="btn btn-default" (click)="start.toggleCalendar()">
-                                                        <i class="glyphicon glyphicon-calendar"></i>
-                                                    </button>
-                                                </span>
+                    <form [formGroup]="adsDetailForm" #formDir="ngForm">
+                        <p class="ttl_question">Bạn có thể trả bao nhiêu chi phí cho quảng cáo này?</p>
+                        <div class="col-12 col-sm-6 col-md-8">
+                            <div class="row no-gutters">
+                                <div class="col-6 col-md-4 text-right">
+                                    <p>Lịch chạy<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-4">
+                                    <div class="form-group form-group-sm">
+                                        <div class='input-group date' id='datetimepicker1'>
+                                            <input id="startday" ngx-mydatepicker [options]="dateOptions" #start="ngx-mydatepicker" type='text' class="form-control" name="startday" formControlName="dateFrom" />
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default" (click)="start.toggleCalendar()">
+                                                    <i class="glyphicon glyphicon-calendar"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-4">
+                                    <div class="form-group form-group-sm">
+                                        <div class='input-group date' id='datetimepicker2'>
+                                            <input id="today" ngx-mydatepicker [options]="dateOptions" #end="ngx-mydatepicker" type='text' class="form-control" name="today" formControlName="dateTo" />
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default" (click)="end.toggleCalendar()">
+                                                    <i class="glyphicon glyphicon-calendar"></i>
+                                                </button>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-6 col-md-4">
-                                <div class="form-group form-group-sm">
-                                    <div class='input-group date' id='datetimepicker1'>
-                                        <input id="startday" ngx-mydatepicker [(ngModel)]="model" [options]="dateOptions" #start="ngx-mydatepicker" (dateChanged)="onDateChanged($event)" type='text' class="form-control" name="startday" />
-                                        <span class="input-group-btn">
-                                    
-                                                            <button type="button" class="btn btn-default" (click)="start.toggleCalendar()">
-                                                                <i class="glyphicon glyphicon-calendar"></i>
-                                                            </button>
-                                                        </span>
+                            <div class="row no-gutters">
+                                <div class="col-6 col-md-4 text-right">
+                                    <p>Số lượng<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
+                                </div>
+                                <div class="col-6 col-sm-6 col-md-4">
+                                    <div class="form-group form-group-sm">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" id="" placeholder="Nhập số lượng" formControlName="amount">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row no-gutters">
-                            <div class="col-6 col-md-4 text-right">
-                                <p>Số lượng<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-4">
-                                <div class="form-group form-group-sm">
-                                    <div class="form-group">
-                                        <input type="number" class="form-control" id="" placeholder="Nhập số lượng">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-4">
-                                <div class="form-group form-group-sm">
-                                    <div class="form-group">
-                                        <select class="form-control" id="">
-                                                                <option>Toàn chiến dịch</option>
-                                                                <option>Mỗi ngày</option>
-                                                            </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="row no-gutters">
-                            <div class="col-6 col-md-4 text-right">
-                                <p class="mgt10">Chọn gói<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-4">
-                                <div class="form-group form-group-sm">
-                                    <div class="checkbox">
-                                        <label>
-                                                    <input type="checkbox" value="">
-                                                    Cài đặt
-                                                </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                                        <input type="checkbox" value="">
-                                                        Tìm kiếm theo keyword
-                                                    </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                                            <input type="checkbox" value="">
-                                                            Đánh sao
-                                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                                                <input type="checkbox" value="">
-                                                                Đánh giá
-                                                            </label>
+                            <div class="row no-gutters" [hidden]="!isApp">
+                                <div class="col-6 col-md-4 text-right">
+                                    <p class="mgt10">Chọn gói<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-4">
+                                    <div class="form-group form-group-sm">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="" formControlName="isInstall"> Cài đặt
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="" formControlName="isView"> Xem
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -370,7 +318,7 @@
                             </div>
                         </div>
 
-                        <div class="row no-gutters">
+                        <div class="row no-gutters" [hidden]="!isApp">
                             <div class="col-6 col-md-4 text-right">
                                 <p>Từ khóa<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
                             </div>
@@ -378,11 +326,10 @@
                                 <div class="row no-gutters mg0">
                                     <div class="form-group form-group-sm">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="" placeholder="Nhập từ khóa">
+                                            <input type="text" class="form-control" id="" placeholder="Nhập từ khóa" formControlName="keyword">
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                             <div class="col-12 col-sm-6 col-md-4">
                             </div>
@@ -390,22 +337,18 @@
 
                         <div class="row no-gutters">
                             <div class="col-6 col-md-4 text-right">
-                                <p>Đặt giá<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
+                                <p>Số coin<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
                             </div>
                             <div class="col-12 col-sm-6 col-md-4">
                                 <div class="row no-gutters">
                                     <div class="col-12 col-sm-6 col-md-8">
                                         <div class="form-group form-group-sm">
                                             <div class="form-group">
-                                                <input type="number" class="form-control" id="" placeholder="Nhập giá">
+                                                <input type="number" class="form-control" id="" placeholder="Nhập số coin" formControlName="coin">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-4 text-left">
-                                        <p class="pdt5">đ/ lượt nhấn</p>
-                                    </div>
                                 </div>
-
                             </div>
                             <div class="col-12 col-sm-6 col-md-4">
                             </div>
@@ -413,41 +356,32 @@
 
                         <div class="row no-gutters">
                             <div class="col-6 col-md-4 text-right">
-                                <p>Nhà phân phối<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
+                                <p>Độ ưu tiên<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
                             </div>
                             <div class="col-12 col-sm-6 col-md-4">
                                 <div class="row no-gutters">
                                     <div class="col-12 col-sm-6 col-md-8">
                                         <div class="form-group form-group-sm">
                                             <div class="form-group">
-                                                <select class="form-control" id="">
-                                                                                <option>Chuẩn</option>
-                                                                                <option>Tăng tốc</option>
-                                                                            </select>
+                                                <select class="form-control" id="" formControlName="priority">
+                                                    <option [ngValue]="0">Bình thường</option>
+                                                    <option [ngValue]="1">Tăng tốc</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-6 col-md-4">
                                     </div>
                                 </div>
-
                             </div>
+
                             <div class="col-12 col-sm-6 col-md-4">
                             </div>
                         </div>
-
-                        <div class="row no-gutters">
-                            <div class="col-6 col-md-4 text-right">
-                                <p>Tổng chi phí dự kiến<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-4">
-                                <p>0đ</p>
-                            </div>
-
-                        </div>
-                    </div>
+                    </form>
                 </div>
-                <div class="row no-gutters mgt20">
+
+                <div class="row no-gutters mgt20" [hidden]="isApp">
                     <p class="ttl_question">Thông tin thêm</p>
                     <div class="col-12 col-sm-6 col-md-8">
                         <div class="row no-gutters">
@@ -458,48 +392,40 @@
                                 <div class="more_info">
                                     <div class="checkbox">
                                         <label>
-                                                <input type="checkbox" value="">
-                                                Trò chơi
-                                            </label>
+                                        <input type="checkbox" value="">Trò chơi
+                                    </label>
                                     </div>
                                     <div class="checkbox">
                                         <label>
-                                                    <input type="checkbox" value="">
-                                                    Nhạc và phim ảnh
-                                                </label>
+                                        <input type="checkbox" value="">Nhạc và phim ảnh
+                                    </label>
                                     </div>
                                     <div class="checkbox">
                                         <label>
-                                                        <input type="checkbox" value="">
-                                                        Giáo dục
-                                                    </label>
+                                        <input type="checkbox" value="">Giáo dục
+                                    </label>
                                     </div>
                                     <div class="checkbox">
                                         <label>
-                                                            <input type="checkbox" value="">
-                                                            Sức khỏe làm đẹp
-                                                        </label>
+                                        <input type="checkbox" value="">Sức khỏe làm đẹp
+                                    </label>
                                     </div>
                                     <div class="checkbox">
                                         <label>
-                                                                <input type="checkbox" value="">
-                                                                Thiết bị điện tử và phần mềm
-                                                            </label>
+                                        <input type="checkbox" value="">Thiết bị điện tử và phần mềm
+                                    </label>
                                     </div>
                                     <div class="checkbox">
                                         <label>
-                                                                    <input type="checkbox" value="">
-                                                                    Ẩm thực
-                                                                </label>
+                                        <input type="checkbox" value="">Ẩm thực
+                                    </label>
                                     </div>
                                     <div class="checkbox">
                                         <label>
-                                                                        <input type="checkbox" value="">
-                                                                        Thời trang
-                                                                    </label>
+                                        <input type="checkbox" value="">Thời trang
+                                    </label>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -508,10 +434,10 @@
                     <div class="col-6 col-md-8">
                     </div>
                     <div class="col-12 col-sm-6 col-md-2 text-right">
-                        <button type="button" class="btn btn-default">Lưu</button>
+                        <button type="button" class="btn btn-default">Hủy bỏ</button>
                     </div>
                     <div class="col-12 col-sm-6 col-md-2">
-                        <button type="button" class="btn btn-primary">Lưu và gửi duyệt</button>
+                        <button type="button" class="btn btn-primary" (click)="createAds()" [disabled]="adsForm.invalid || adsDetailForm.invalid">Tạo quảng cáo</button>
                     </div>
                 </div>
             </div>

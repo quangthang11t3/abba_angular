@@ -6,21 +6,20 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { User } from '../../models/user';
 import { AuthService } from '../services/auth.service';
 
-let httpOptions = {
-};
-
 @Injectable()
 export class AdsService {
+
+    private httpOptions = {
+    };
 
     constructor( 
         private http: HttpClient,
         private authService : AuthService ) {
         let user = this.authService.getUser();
-        httpOptions['headers'] = new HttpHeaders({ 
+        console.log('user:', user);
+        this.httpOptions['headers'] = new HttpHeaders({ 
             'Content-Type': 'application/json',
-            'x-access-token': user['token'],
-            'Access-Control-Allow-Headers': 'Content-Type',
-            'Access-Control-Allow-Origin': '*'
+            'x-access-token': user['token']
         })
     }
 
@@ -31,9 +30,49 @@ export class AdsService {
         } else {
             url += '/app/ios';
         }
+
+        console.log('httpOptions:', this.httpOptions);
         return this.http.post(url, JSON.stringify({
             id: appId
-        }), httpOptions).pipe(
+        }), this.httpOptions).pipe(
+            tap((response: Response)=>{
+                return response;
+            }),
+            catchError(this.handleError)
+        );
+    }
+
+    checkWebUrl(link: string): Observable<Response>{
+        let url = config.api_url + '/web/check';
+        return this.http.post(url, JSON.stringify({
+            url: link
+        }), this.httpOptions).pipe(
+            tap((response: Response)=>{
+                return response;
+            }),
+            catchError(this.handleError)
+        );
+    }
+
+    createAds(ads: any): Observable<Response>{
+        let url = config.api_url + '/ads';
+        console.log('ads:', ads);
+        return this.http.post(url, JSON.stringify({
+            address: ads.address,
+            sex: ads.sex,
+            startAge: ads.startAge,
+            endAge: ads.endAge,
+            platform: ads.platform,
+            type: ads.type,
+            startTime: ads.startTime,
+            endTime: ads.endTime,
+            amount: ads.amount,
+            link: ads.link,
+            keyword: ads.keyword,
+            coin: ads.coin,
+            priority: ads.priority,
+            package: ads.package
+        }), this.httpOptions).pipe(
             tap((response: Response)=>{
                 return response;
             }),

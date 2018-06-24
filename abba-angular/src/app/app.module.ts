@@ -32,7 +32,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadingModule } from 'ngx-loading';
 import { AdsService } from './shared/services/ads.service';
-import { LocalBankService } from './shared/services/localbank.service';
 import { AuthService } from './shared/services/auth.service';
 import {CustExtBrowserXhr} from './shared/commons/cust-ext-browser-xhr';
 import { BrowserXhr } from '@angular/http';
@@ -76,13 +75,12 @@ import { DepositComponent } from './dashboard/ads/deposit/deposit.component';
     LoadingModule,
     ToastrModule.forRoot(),
     NgxMyDatePickerModule.forRoot(),
-    CountryPickerModule.forRoot()
+    CountryPickerModule.forRoot(),
   ],
   providers: [
     {provide: BrowserXhr, useClass:CustExtBrowserXhr},
     LoginService,
     AdsService,
-    LocalBankService,
     AuthService
   ],
   bootstrap: [AppComponent]
