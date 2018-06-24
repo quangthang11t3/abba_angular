@@ -37,6 +37,7 @@ import {CustExtBrowserXhr} from './shared/commons/cust-ext-browser-xhr';
 import { BrowserXhr } from '@angular/http';
 import { BtnDepositComponent } from './dashboard/btn-deposit/btn-deposit.component';
 import { DepositComponent } from './dashboard/ads/deposit/deposit.component';
+import { RequestExchangeComponent } from './dashboard/ads/request-exchange/request-exchange.component';
 // import { GocarIntlTelInputComponent } from './intl-telephone/intl-telephone.component';
 
 @NgModule({
@@ -60,6 +61,7 @@ import { DepositComponent } from './dashboard/ads/deposit/deposit.component';
     AdverCreateComponent,
     BtnDepositComponent,
     DepositComponent,
+    RequestExchangeComponent,
     // GocarIntlTelInputComponent
   ],
   imports: [

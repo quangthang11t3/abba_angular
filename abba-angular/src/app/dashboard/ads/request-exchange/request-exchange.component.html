@@ -1,0 +1,142 @@
+<app-nav-sp></app-nav-sp>
+<app-sidebar></app-sidebar>
+<main class="inner_content_box col-sm-9 col-md-10 col-lg-10">
+    <div class="inner_cntbox_ttl">
+        <p>Danh sách yêu cầu thanh toán</p>
+    </div>
+    <form class="form-horizontal" action="#" method="get">
+        <fieldset>
+            <div class="row reset_mg">
+                <div class='col-sm-4'>
+                    <div class="form-group form-group-sm">
+                        <label class="control-label col-sm-3">Email:</label>
+                        <div class='input-group date  col-sm-9'>
+                            <input type="text" placeholder="Nhập email" class="form-control" style="border-radius: 4px; width: 100%;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row reset_mg">
+                <div class='col-sm-4'>
+                    <div class="form-group form-group-sm">
+                        <label class="control-label col-sm-3">Bắt đầu:</label>
+                        <div class='input-group date' id='datetimepicker1'>
+                            <input id="startday" ngx-mydatepicker [(ngModel)]="model1" [options]="dateOptions1" #start="ngx-mydatepicker" (dateChanged)="onDateChanged($event)" type='text' class="form-control" name="startday" />
+                            <span class="input-group-btn">
+    
+                            <button type="button" class="btn btn-default" (click)="start.toggleCalendar()">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-sm-4'>
+                    <div class="form-group form-group-sm">
+                        <label class="control-label col-sm-3">Kết thúc:</label>
+                        <div class='input-group date' id='datetimepicker2'>
+                            <input id="endday" ngx-mydatepicker [(ngModel)]="model2" [options]="dateOptions2" #end="ngx-mydatepicker" (dateChanged)="onDateChanged($event)" type='text' class="form-control" name="endday" />
+                            <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" (click)="end.toggleCalendar()">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-sm-3'>
+                    <input type="submit" value="Tìm kiếm" class="btn btn-primary btn_update">
+                </div>
+            </div>
+
+
+        </fieldset>
+    </form>
+    <div class="inner_table table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tài khoản</th>
+                    <th>Ngày request</th>
+                    <th>Số tiền</th>
+                    <th>Hình thức thanh toán</th>
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>qthangbk@gmail.com</td>
+                    <td>22/6/2018</td>
+                    <td>20.000</td>
+                    <td>Card Viettel</td>
+                    <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#payModal_1">Thanh toán</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>qthangbk@gmail.com</td>
+                    <td>22/6/2018</td>
+                    <td>20.000</td>
+                    <td>Card Viettel</td>
+                    <td><button type="button" class="btn btn-success">Thanh toán</button></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>qthangbk@gmail.com</td>
+                    <td>22/6/2018</td>
+                    <td>20.000</td>
+                    <td>Card Viettel</td>
+                    <td><button type="button" class="btn btn-success">Thanh toán</button></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>qthangbk@gmail.com</td>
+                    <td>22/6/2018</td>
+                    <td>20.000</td>
+                    <td>Card Viettel</td>
+                    <td><button type="button" class="btn btn-success">Thanh toán</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="statistical">
+        <div class="sum sum_acc row">
+            <div class="col-md-3">
+                <p>Tổng số tài khoản request:</p>
+            </div>
+            <div class="col-md-9">
+                <p>400</p>
+            </div>
+        </div>
+        <div class="sum sum_money row">
+            <div class="col-md-3">
+                <p>Tổng số tiền chưa request:</p>
+            </div>
+            <div class="col-md-9">
+                <p>400.000đ</p>
+            </div>
+        </div>
+    </div>
+    <div class="inner_pagination">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</main>
