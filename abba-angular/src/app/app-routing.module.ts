@@ -13,6 +13,7 @@ import { RequestExchangeComponent } from './dashboard/ads/request-exchange/reque
 import { OtherComponent } from './dashboard/ads/other/other.component';
 import { AdverCreateComponent } from './dashboard/ads/adver-create/adver-create.component';
 import { DepositComponent } from './dashboard/ads/deposit/deposit.component';
+import { PaymentDetailComponent } from 'src/app/dashboard/ads/payment-detail/payment-detail.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
           { path: 'request-exchange', component: RequestExchangeComponent },          
           { path: 'promotion', component: FeatureComponent }, 
           { path: 'adver-create', component: AdverCreateComponent }, 
-          { path: 'deposit', component: DepositComponent },                                                                   
+          { path: 'deposit', component: DepositComponent },    
+          { path: 'payment-detail', component: PaymentDetailComponent },                                                               
           { path: 'other', component: OtherComponent }          
         ]
       },

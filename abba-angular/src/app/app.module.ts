@@ -29,6 +29,7 @@ import { AdverCreateComponent } from './dashboard/ads/adver-create/adver-create.
 import { BtnDepositComponent } from './dashboard/btn-deposit/btn-deposit.component';
 import { DepositComponent } from './dashboard/ads/deposit/deposit.component';
 import { RequestExchangeComponent } from './dashboard/ads/request-exchange/request-exchange.component';
+import { PaymentDetailComponent } from './dashboard/ads/payment-detail/payment-detail.component';
 // import { GocarIntlTelInputComponent } from './intl-telephone/intl-telephone.component';
 
 @NgModule({
@@ -53,6 +54,7 @@ import { RequestExchangeComponent } from './dashboard/ads/request-exchange/reque
     BtnDepositComponent,
     DepositComponent,
     RequestExchangeComponent,
+    PaymentDetailComponent,
     // GocarIntlTelInputComponent
   ],
   imports: [
