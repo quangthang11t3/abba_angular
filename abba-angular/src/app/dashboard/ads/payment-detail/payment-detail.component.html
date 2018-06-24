@@ -1,6 +1,7 @@
 <app-nav-sp></app-nav-sp>
 <app-sidebar></app-sidebar>
 <main class="inner_content_box col-sm-9 col-md-10 col-lg-10">
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
     <div class="inner_cntbox_ttl">
         <p>Danh sách mã thanh toán</p>
     </div>
@@ -11,46 +12,31 @@
                     <th>STT</th>
                     <th>Hình thức thanh toán</th>
                     <th>Số tiền</th>
-                    <th>Trạng thái</th>
+                    <th>Tài khoản</th>
                     <th>Mã nạp</th>
                     <th>Số serial</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Card Viettel</td>
-                    <td>20.000</td>
-                    <td>Chưa thanh toán</td>
-                    <td>1234567890</td>
-                    <td>9876543210</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Card Viettel</td>
-                    <td>20.000</td>
-                    <td>Chưa thanh toán</td>
-                    <td>1234567890</td>
-                    <td>9876543210</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Card Viettel</td>
-                    <td>20.000</td>
-                    <td>Chưa thanh toán</td>
-                    <td>1234567890</td>
-                    <td>9876543210</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Card Viettel</td>
-                    <td>20.000</td>
-                    <td>Đã thanh toán</td>
-                    <td>1234567890</td>
-                    <td>9876543210</td>
+            <tbody *ngIf="requests.length">
+                <tr id={{request.id}} *ngFor="let i = index; let request of requests | paginate: { id: 'server', itemsPerPage: 10, currentPage: page, totalItems: count }">
+                    <td>{{i + 1 }}</td>
+                    <td [ngSwitch]="request.type ">
+                        <span *ngSwitchCase="1 ">Card Viettel</span>
+                        <span *ngSwitchCase="2 ">Card Mobiphone</span>
+                        <span *ngSwitchCase="3 ">Card Vinaphone</span>
+                        <span *ngSwitchCase="4 ">Card Vietnammobile</span>
+                    </td>
+                    <td>{{request.amount}}</td>
+                    <td>{{request.user}}</td>
+                    <td>{{request.code}}</td>
+                    <td>{{request.serial}}</td>
                 </tr>
             </tbody>
         </table>
+        <div class="has-text-centered">
+            <div class="spinner" [ngClass]="{ 'hidden': !loading }"></div>
+            <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>
+        </div>
     </div>
     <div class="statistical">
         <div class="sum sum_acc row">
@@ -60,7 +46,7 @@
                         <p>Tổng số chưa thanh toán:</p>
                     </div>
                     <div class="col-md-6">
-                        <p>400</p>
+                        <p>{{pending | currency:'VND':'symbol':'4.2-2'}}</p>
                     </div>
                 </div>
             </div>
@@ -70,47 +56,10 @@
                         <p>Tổng số đã thanh toán:</p>
                     </div>
                     <div class="col-md-6">
-                        <p>200</p>
+                        <p>{{approved | currency:'VND':'symbol':'4.2-2'}} VND</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="sum sum_acc row">
-            <div class="col-md-3">
-                <p>Tổng tất cả số tiền:</p>
-            </div>
-            <div class="col-md-9">
-                <p>8.000.000vnđ</p>
-            </div>
-        </div>
-        <div class="sum sum_money row">
-            <div class="col-md-3">
-                <p>Tổng số tiền còn lại:</p>
-            </div>
-            <div class="col-md-9">
-                <p>400.000đ</p>
-            </div>
-        </div>
-    </div>
-    <div class="inner_pagination">
-        <nav aria-label="Page navigation">
-            <ul class="pagination">
-                <li>
-                    <a href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                    <a href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
     </div>
 </main>

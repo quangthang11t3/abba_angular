@@ -5,14 +5,23 @@
     <div class="inner_cntbox_ttl">
         <p>Danh sách yêu cầu thanh toán</p>
     </div>
-    <form class="form-horizontal" action="#" method="get">
+    <form class="form-horizontal" action="#" method="get" [formGroup]="searchForm" #formDir="ngForm">
         <fieldset>
             <div class="row reset_mg">
                 <div class='col-sm-4'>
                     <div class="form-group form-group-sm">
                         <label class="control-label col-sm-3">Email:</label>
                         <div class='input-group date  col-sm-9'>
-                            <input type="text" placeholder="Nhập email" class="form-control" style="border-radius: 4px; width: 100%;">
+                            <input type="text" placeholder="Nhập email" class="form-control" style="border-radius: 4px; width: 100%;" formControlName="email">
+                        </div>
+                        <div *ngIf="email.invalid && email.touched" class="vali_error">
+
+                            <div *ngIf="email.errors.required">
+                                * email is required.
+                            </div>
+                            <div *ngIf="email.errors.email">
+                                * invalid format.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -22,7 +31,7 @@
                     <div class="form-group form-group-sm">
                         <label class="control-label col-sm-3">Bắt đầu:</label>
                         <div class='input-group date' id='datetimepicker1'>
-                            <input id="startday" ngx-mydatepicker [(ngModel)]="model1" [options]="dateOptions1" #start="ngx-mydatepicker" (dateChanged)="onDateChanged($event)" type='text' class="form-control" name="startday" />
+                            <input id="startday" ngx-mydatepicker [options]="dateOptions1" #start="ngx-mydatepicker" (dateChanged)="onDateChanged($event)" type='text' class="form-control" name="startday" />
                             <span class="input-group-btn">
     
                             <button type="button" class="btn btn-default" (click)="start.toggleCalendar()">
@@ -36,7 +45,7 @@
                     <div class="form-group form-group-sm">
                         <label class="control-label col-sm-3">Kết thúc:</label>
                         <div class='input-group date' id='datetimepicker2'>
-                            <input id="endday" ngx-mydatepicker [(ngModel)]="model2" [options]="dateOptions2" #end="ngx-mydatepicker" (dateChanged)="onDateChanged($event)" type='text' class="form-control" name="endday" />
+                            <input id="endday" ngx-mydatepicker [options]="dateOptions2" #end="ngx-mydatepicker" (dateChanged)="onDateChanged($event)" type='text' class="form-control" name="endday" />
                             <span class="input-group-btn">
                             <button type="button" class="btn btn-default" (click)="end.toggleCalendar()">
                                 <i class="glyphicon glyphicon-calendar"></i>
@@ -54,7 +63,7 @@
         </fieldset>
     </form>
     <div class="inner_table table-responsive">
-        <table class="table" *ngIf="requests.length">
+        <table class="table">
             <thead>
                 <tr>
                     <th>STT</th>
@@ -62,11 +71,12 @@
                     <th>Ngày request</th>
                     <th>Số tiền</th>
                     <th>Hình thức thanh toán</th>
+                    <th>Số điện thoại</th>
                     <th>#</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr id={{request.id}} *ngFor="let i = index; let request of requests | paginate: { id: 'server', itemsPerPage: 10, currentPage: page, totalItems: count }">
+            <tbody *ngIf="requests.length">
+                <tr *ngFor="let i = index; let request of requests | paginate: { id: 'server', itemsPerPage: 10, currentPage: page, totalItems: count }">
                     <td>{{i + 1 }}</td>
                     <td>{{request.user}}</td>
                     <td>{{request.date | date}}</td>
@@ -78,7 +88,8 @@
                         <span *ngSwitchCase="3 ">Card Vinaphone</span>
                         <span *ngSwitchCase="4 ">Card Vietnammobile</span>
                     </td>
-                    <td><button type="button " class="btn btn-success " (click)="pay(request.id) ">Thanh toán</button></td>
+                    <td>{{request.phone}}</td>
+                    <td><button type="button " class="btn btn-success " (click)="pay(request.id) " id={{request.id}}>Thanh toán</button></td>
                 </tr>
             </tbody>
         </table>
