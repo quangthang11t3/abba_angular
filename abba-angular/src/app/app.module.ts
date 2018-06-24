@@ -38,6 +38,7 @@ import { BrowserXhr } from '@angular/http';
 import { BtnDepositComponent } from './dashboard/btn-deposit/btn-deposit.component';
 import { DepositComponent } from './dashboard/ads/deposit/deposit.component';
 import { RequestExchangeComponent } from './dashboard/ads/request-exchange/request-exchange.component';
+import { PaymentDetailComponent } from './dashboard/ads/payment-detail/payment-detail.component';
 // import { GocarIntlTelInputComponent } from './intl-telephone/intl-telephone.component';
 import { RequestPaymentService } from './shared/services/request-payment.service';
 import {NgxPaginationModule} from 'ngx-pagination';
@@ -64,6 +65,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     BtnDepositComponent,
     DepositComponent,
     RequestExchangeComponent,
+    PaymentDetailComponent,
     // GocarIntlTelInputComponent
   ],
   imports: [
