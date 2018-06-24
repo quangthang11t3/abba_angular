@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, of, throwError } from 'rxjs';
 import { environment as config } from '../../../environments/environment';
 import { catchError, map, tap } from 'rxjs/operators';
-import { User } from '../../models/user';
 import { AuthService } from '../services/auth.service';
 
 @Injectable()

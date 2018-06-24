@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormArray} from '@angular/forms';
 import { ToastrService} from 'ngx-toastr';
 import { AdsService } from '../../../shared/services/ads.service';
-import {INgxMyDpOptions, IMyDateModel} from 'ngx-mydatepicker';
+import {INgxMyDpOptions} from 'ngx-mydatepicker';
 
 @Component({
   selector: 'app-adver-create',

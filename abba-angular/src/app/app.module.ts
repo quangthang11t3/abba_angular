@@ -39,6 +39,8 @@ import { BtnDepositComponent } from './dashboard/btn-deposit/btn-deposit.compone
 import { DepositComponent } from './dashboard/ads/deposit/deposit.component';
 import { RequestExchangeComponent } from './dashboard/ads/request-exchange/request-exchange.component';
 // import { GocarIntlTelInputComponent } from './intl-telephone/intl-telephone.component';
+import { RequestPaymentService } from './shared/services/request-payment.service';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -78,12 +80,14 @@ import { RequestExchangeComponent } from './dashboard/ads/request-exchange/reque
     ToastrModule.forRoot(),
     NgxMyDatePickerModule.forRoot(),
     CountryPickerModule.forRoot(),
+    NgxPaginationModule
   ],
   providers: [
     {provide: BrowserXhr, useClass:CustExtBrowserXhr},
     LoginService,
     AdsService,
-    AuthService
+    AuthService,
+    RequestPaymentService
   ],
   bootstrap: [AppComponent]
 })

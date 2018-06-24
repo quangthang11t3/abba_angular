@@ -37,9 +37,11 @@
         "ngx-echarts": "^3.0.0",
         "ngx-loading": "^1.0.14",
         "ngx-mydatepicker": "^2.4.5",
+        "ngx-pagination": "^3.1.1",
         "ngx-toastr": "^8.7.3",
         "npm": "^6.1.0",
-        "rxjs": "^6.0.0",
+        "rxjs": "^6.2.1",
+        "rxjs-compat": "^6.2.1",
         "zone.js": "^0.8.26"
     },
     "devDependencies": {
