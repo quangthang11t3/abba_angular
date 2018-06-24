@@ -1,0 +1,16 @@
+#input_user_search {
+    position: relative;
+}
+
+.btn_search {
+    position: absolute;
+    top: 4px;
+    right: 20px;
+    border: none;
+    background-color: transparent;
+    font-size: 0;
+    width: 25px;
+    height: 25px;
+    background: url(../../../../assets/images/icon/ic_search.png) no-repeat;
+    background-size: 100% 100%;
+}
