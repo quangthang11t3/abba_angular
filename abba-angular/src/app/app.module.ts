@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule }    from '@angular/common/http';
 
 import { CountryPickerModule } from 'ngx-country-picker';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -24,13 +25,23 @@ import { FeatureComponent } from './dashboard/ads/feature/feature.component';
 import { PromotionSettingComponent } from './dashboard/ads/promotion-setting/promotion-setting.component';
 import { NgxMyDatePickerModule  } from 'ngx-mydatepicker';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdverCreateComponent } from './dashboard/ads/adver-create/adver-create.component';
+import { LoginService } from './shared/services/login.service';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoadingModule } from 'ngx-loading';
+import { AdsService } from './shared/services/ads.service';
+import { AuthService } from './shared/services/auth.service';
+import {CustExtBrowserXhr} from './shared/commons/cust-ext-browser-xhr';
+import { BrowserXhr } from '@angular/http';
 import { BtnDepositComponent } from './dashboard/btn-deposit/btn-deposit.component';
 import { DepositComponent } from './dashboard/ads/deposit/deposit.component';
 import { RequestExchangeComponent } from './dashboard/ads/request-exchange/request-exchange.component';
 import { PaymentDetailComponent } from './dashboard/ads/payment-detail/payment-detail.component';
 // import { GocarIntlTelInputComponent } from './intl-telephone/intl-telephone.component';
+import { RequestPaymentService } from './shared/services/request-payment.service';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -58,16 +69,29 @@ import { PaymentDetailComponent } from './dashboard/ads/payment-detail/payment-d
     // GocarIntlTelInputComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     NgxDatatableModule,
     NgxEchartsModule,
     CommonModule,
     FormsModule,
-    NgxMyDatePickerModule.forRoot() ,
-    CountryPickerModule.forRoot()
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    LoadingModule,
+    ToastrModule.forRoot(),
+    NgxMyDatePickerModule.forRoot(),
+    CountryPickerModule.forRoot(),
+    NgxPaginationModule
   ],
-  providers: [],
+  providers: [
+    {provide: BrowserXhr, useClass:CustExtBrowserXhr},
+    LoginService,
+    AdsService,
+    AuthService,
+    RequestPaymentService
+  ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

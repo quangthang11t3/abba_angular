@@ -29,7 +29,8 @@
                             "src/assets/css/font.css",
                             "src/assets/css/bootstrap.min.css",
                             "src/assets/css/smartphone.css",
-                            "src/styles.css"
+                            "src/styles.css",
+                            "node_modules/ngx-toastr/toastr.css"
                         ],
                         "scripts": [
                             "node_modules/jquery/dist/jquery.js",
