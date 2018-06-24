@@ -51,7 +51,7 @@ export class PaymentDetailComponent implements OnInit {
               type: element['type'],
               amount: element['amount'],
               date: element['createdAt'],
-              user: element['userId']['email'],
+              user: element['userId'] && element['userId']['email'],
               code: element['code'],
               serial: element['serial']
             });

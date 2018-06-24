@@ -82,7 +82,7 @@ export class RequestExchangeComponent implements OnInit {
               amount: element['amount'],
               date: element['createdAt'],
               phone: element['phone'],
-              user: element['userId']['email']
+              user: element['userId'] && element['userId']['email']
             });
           });
           console.log(this.requests);
