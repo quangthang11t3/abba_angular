@@ -373,7 +373,7 @@ export class AdverCreateComponent implements OnInit {
 
     let packages ='';
 
-    if( this.adsType > 1){
+    if( this.adsType <= 1){
       if(!isInstall && !isView){
         this.toastr.error('Bạn phải chọn gói trước');
         this.loading = false;
