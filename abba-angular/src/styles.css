@@ -1,3 +1,20 @@
+.vali_error {
+    float: left;
+    color: red;
+    margin-bottom: 5px;
+}
+
+.close {
+    float: right;
+    margin-right: -20px;
+    margin-top: -15px;
+}
+
+.close :hover {
+    cursor: pointer;
+}
+
+
 /*=========================
 common dashboard
 =========================*/

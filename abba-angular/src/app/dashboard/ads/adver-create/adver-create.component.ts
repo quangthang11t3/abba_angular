@@ -174,10 +174,7 @@ export class AdverCreateComponent implements OnInit {
       ]),
       'isInstall': new FormControl(this.adsDetail.isInstall),
       'isView': new FormControl(this.adsDetail.isView),
-      'keyword': new FormControl(this.adsDetail.keyword, [
-        Validators.required,
-        Validators.minLength(3)
-      ]),
+      'keyword': new FormControl(this.adsDetail.keyword),
       'coin': new FormControl(this.adsDetail.coin, [
         Validators.min(1)
       ]),
@@ -374,11 +371,28 @@ export class AdverCreateComponent implements OnInit {
       return;
     }
 
-    if(isInstall && isView){
-      this.toastr.error('Bạn phải chọn gói trước');
-      this.loading = false;
-      return;
+    let packages ='';
+
+    if( this.adsType > 1){
+      if(!isInstall && !isView){
+        this.toastr.error('Bạn phải chọn gói trước');
+        this.loading = false;
+        return;
+      }
+
+      if(isInstall && isView)  packages = '2';
+      else if(isInstall) packages = '0';
+      else if(isView) packages = '1';
     }
+
+    let link = '';
+
+    if(this.adsType <=1) {
+      link = this.appForm.value.appId;
+    }
+
+    if(this.adsType === 2) link = this.webForm.value.webUrl;
+    if(this.adsType === 3) link = this.fbForm.value.fbUrl;
 
     let adsObj = {
       address: this.adsForm.value.address,
@@ -390,10 +404,11 @@ export class AdverCreateComponent implements OnInit {
       startTime: new Date(startTime.date.year, startTime.date.month, startTime.date.day),
       endTime: new Date(endTime.date.year, endTime.date.month, endTime.date.day),
       amount: this.adsDetailForm.value.amount,
-      link: this.appForm.value.appId,
+      link: link,
       keyword: this.adsDetailForm.value.keyword,
       coin: this.adsDetailForm.value.coin,
-      priority: this.adsDetailForm.value.priority
+      priority: this.adsDetailForm.value.priority,
+      package: packages
     }
 
     this.adsService.createAds(adsObj).subscribe((response)=>{
@@ -401,6 +416,7 @@ export class AdverCreateComponent implements OnInit {
       console.log(response);
       if(response['success']){
         this.toastr.success('Create ads success');
+        this.cancel();
       } else {
         this.toastr.error('Create ads failed.');
       }
@@ -413,5 +429,16 @@ export class AdverCreateComponent implements OnInit {
 
   checkFBLink(link){
     return link.indexOf('https://www.facebook.com/groups/') >= 0;
+  }
+
+  closeState2(component){
+    console.log('click');
+    $(`.${component}_state1`).css("display", "block");
+    $(`.${component}_state2`).css("display", "none");
+  }
+
+  cancel(){
+    $('.state_1_2').css("display", "block");
+    $('.state3').css("display", "none");
   }
 }
