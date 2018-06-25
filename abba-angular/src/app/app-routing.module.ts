@@ -14,6 +14,8 @@ import { OtherComponent } from './dashboard/ads/other/other.component';
 import { AdverCreateComponent } from './dashboard/ads/adver-create/adver-create.component';
 import { DepositComponent } from './dashboard/ads/deposit/deposit.component';
 import { PaymentDetailComponent } from 'src/app/dashboard/ads/payment-detail/payment-detail.component';
+import { ListAppComponent } from 'src/app/dashboard/ads/list-app/list-app.component';
+import { ManageUserComponent } from 'src/app/dashboard/ads/manage-user/manage-user.component';
 
 
 const routes: Routes = [
@@ -30,7 +32,9 @@ const routes: Routes = [
           { path: 'promotion', component: FeatureComponent }, 
           { path: 'adver-create', component: AdverCreateComponent }, 
           { path: 'deposit', component: DepositComponent },    
-          { path: 'payment-detail', component: PaymentDetailComponent },                                                               
+          { path: 'payment-detail', component: PaymentDetailComponent },       
+          { path: 'list-app', component: ListAppComponent },     
+          { path: 'manage-user', component: ManageUserComponent },                                                   
           { path: 'other', component: OtherComponent }          
         ]
       },

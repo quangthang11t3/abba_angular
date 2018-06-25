@@ -39,6 +39,8 @@ import { BtnDepositComponent } from './dashboard/btn-deposit/btn-deposit.compone
 import { DepositComponent } from './dashboard/ads/deposit/deposit.component';
 import { RequestExchangeComponent } from './dashboard/ads/request-exchange/request-exchange.component';
 import { PaymentDetailComponent } from './dashboard/ads/payment-detail/payment-detail.component';
+import { ListAppComponent } from './dashboard/ads/list-app/list-app.component';
+import { ManageUserComponent } from './dashboard/ads/manage-user/manage-user.component';
 // import { GocarIntlTelInputComponent } from './intl-telephone/intl-telephone.component';
 import { RequestPaymentService } from './shared/services/request-payment.service';
 import {NgxPaginationModule} from 'ngx-pagination';
@@ -66,6 +68,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     DepositComponent,
     RequestExchangeComponent,
     PaymentDetailComponent,
+    ListAppComponent,
+    ManageUserComponent,
     // GocarIntlTelInputComponent
   ],
   imports: [
