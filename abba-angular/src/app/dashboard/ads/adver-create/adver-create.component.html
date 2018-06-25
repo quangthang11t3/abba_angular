@@ -14,6 +14,7 @@
                             <a class="btn_start btn btn-primary" (click)="step2('app')">Bắt đầu</a>
                         </div>
                         <div class="setting2 app_state2">
+                            <a class='close' (click)="closeState2('app')">X</a>
                             <h4 class="col_ttl">Cài đặt ứng dụng</h4>
                             <div class="form-group">
                                 <form action="#" [formGroup]="appForm" #formDir="ngForm">
@@ -62,6 +63,7 @@
                             <a class="btn_start btn btn-primary" (click)="step2('web')">Bắt đầu</a>
                         </div>
                         <div class="website2 web_state2">
+                            <a class='close' (click)="closeState2('web')">X</a>
                             <h4 class="col_ttl">Quảng cáo Website/ Youtube</h4>
                             <div class="form-group">
                                 <form action="#" [formGroup]="webForm" #formDir="ngForm">
@@ -111,6 +113,7 @@
                             <a class="btn_start btn btn-primary" (click)="step2('fb')">Bắt đầu</a>
                         </div>
                         <div class="facebook2 fb_state2">
+                            <a class='close' (click)="closeState2('fb')">X</a>
                             <h4 class="col_ttl">Quảng cáo Facebook</h4>
                             <div class="form-group">
                                 <form action="#" [formGroup]="fbForm" #formDir="ngForm">
@@ -230,7 +233,7 @@
                             <div class="infor_state">
                                 <p class="infor_state_ttl">Chi tiết đối tượng</p>
                                 <ul>+ Tỉnh/ Thành phố
-                                    <li *ngIf="adsForm.value.address">{{adsForm.value.address}}</li>
+                                    <li *ngIf="adsForm.value.address" style="overflow-wrap:break-word;">{{adsForm.value.address}}</li>
                                 </ul>
                                 <ul [ngSwitch]="adsForm.value.sex">+ Giới tính
                                     <li *ngSwitchCase="0">Tất cả</li>
@@ -292,6 +295,11 @@
                                             <input type="number" class="form-control" id="" placeholder="Nhập số lượng" formControlName="amount">
                                         </div>
                                     </div>
+                                    <div *ngIf="amount.invalid && amount.touched" class="vali_error">
+                                        <div *ngIf="amount.errors.min">
+                                            * amount must be greater than 0.
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -313,77 +321,82 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-4">
-                            </div>
-                        </div>
-
-                        <div class="row no-gutters" [hidden]="!isApp">
-                            <div class="col-6 col-md-4 text-right">
-                                <p>Từ khóa<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-4">
-                                <div class="row no-gutters mg0">
-                                    <div class="form-group form-group-sm">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="" placeholder="Nhập từ khóa" formControlName="keyword">
-                                        </div>
-                                    </div>
+                                <div class="col-12 col-sm-6 col-md-4">
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-6 col-md-4">
-                            </div>
-                        </div>
 
-                        <div class="row no-gutters">
-                            <div class="col-6 col-md-4 text-right">
-                                <p>Số coin<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-4">
-                                <div class="row no-gutters">
-                                    <div class="col-12 col-sm-6 col-md-8">
+                            <div class="row no-gutters" [hidden]="!isApp">
+                                <div class="col-6 col-md-4 text-right">
+                                    <p>Từ khóa<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-4">
+                                    <div class="row no-gutters mg0">
                                         <div class="form-group form-group-sm">
                                             <div class="form-group">
-                                                <input type="number" class="form-control" id="" placeholder="Nhập số coin" formControlName="coin">
+                                                <input type="text" class="form-control" id="" placeholder="Nhập từ khóa" formControlName="keyword">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-4">
-                            </div>
-                        </div>
-
-                        <div class="row no-gutters">
-                            <div class="col-6 col-md-4 text-right">
-                                <p>Độ ưu tiên<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-4">
-                                <div class="row no-gutters">
-                                    <div class="col-12 col-sm-6 col-md-8">
-                                        <div class="form-group form-group-sm">
-                                            <div class="form-group">
-                                                <select class="form-control" id="" formControlName="priority">
-                                                    <option [ngValue]="0">Bình thường</option>
-                                                    <option [ngValue]="1">Tăng tốc</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-md-4">
-                                    </div>
+                                <div class="col-12 col-sm-6 col-md-4">
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-md-4">
+                            <div class="row no-gutters">
+                                <div class="col-6 col-md-4 text-right">
+                                    <p>Số coin<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-4">
+                                    <div class="row no-gutters">
+                                        <div class="col-12 col-sm-6 col-md-8">
+                                            <div class="form-group form-group-sm">
+                                                <div class="form-group">
+                                                    <input type="number" class="form-control" id="" placeholder="Nhập số coin" formControlName="coin">
+                                                </div>
+                                            </div>
+                                            <div *ngIf="coin.invalid && coin.touched" class="vali_error">
+                                                <div *ngIf="coin.errors.min">
+                                                    * coin must be greater than 0.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-4">
+                                </div>
+                            </div>
+
+                            <div class="row no-gutters">
+                                <div class="col-6 col-md-4 text-right">
+                                    <p>Độ ưu tiên<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-4">
+                                    <div class="row no-gutters">
+                                        <div class="col-12 col-sm-6 col-md-8">
+                                            <div class="form-group form-group-sm">
+                                                <div class="form-group">
+                                                    <select class="form-control" id="" formControlName="priority">
+                                                            <option [ngValue]="0">Bình thường</option>
+                                                            <option [ngValue]="1">Tăng tốc</option>
+                                                        </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-md-4">
+                                </div>
                             </div>
                         </div>
                     </form>
                 </div>
 
                 <div class="row no-gutters mgt20" [hidden]="isApp">
-                    <p class="ttl_question">Thông tin thêm</p>
-                    <div class="col-12 col-sm-6 col-md-8">
+                    <!-- <p class="ttl_question">Thông tin thêm</p> -->
+                    <!-- <div class="col-12 col-sm-6 col-md-8">
                         <div class="row no-gutters">
                             <div class="col-6 col-md-4 text-right">
                                 <p>Ngành nghề<span class="glyphicon glyphicon-question-sign mgl10" aria-hidden="true"></span></p>
@@ -428,13 +441,13 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="row no-gutters mgt20">
                     <div class="col-6 col-md-8">
                     </div>
                     <div class="col-12 col-sm-6 col-md-2 text-right">
-                        <button type="button" class="btn btn-default">Hủy bỏ</button>
+                        <button type="button" class="btn btn-default" (click)="cancel()">Hủy bỏ</button>
                     </div>
                     <div class="col-12 col-sm-6 col-md-2">
                         <button type="button" class="btn btn-primary" (click)="createAds()" [disabled]="adsForm.invalid || adsDetailForm.invalid">Tạo quảng cáo</button>
