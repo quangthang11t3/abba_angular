@@ -200,3 +200,22 @@
     font-weight: normal;
     margin-left: 28px;
 }
+
+.ic_validate_wrap {
+    position: relative;
+}
+
+.ic_validate {
+    position: absolute;
+    right: -35px;
+    top: calc(50% - 10px);
+    font-size: 20px;
+}
+
+.ic_validate.success {
+    color: green;
+}
+
+.ic_validate.error {
+    color: red;
+}

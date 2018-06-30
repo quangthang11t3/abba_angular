@@ -24,8 +24,17 @@
                                             <option [ngValue]="1">iOS</option>
                                         </select>
                                     </div>
+                                    <div class="ic_validate_wrap form-group">
+                                        <input type="text" placeholder="Nhập tên gói hoặc nhà xuất bản" class="form-control" id="" formControlName="appId" (focusout)="checkApp($event)" (focus)="inputAppId()">
+                                        <div *ngIf="!isEnterAppId">
+                                            <span [ngSwitch]="isAppExists">
+                                                <span *ngSwitchCase="false" class="ic_validate error glyphicon glyphicon-remove"></span>
+                                            <span *ngSwitchCase="true" class="ic_validate glyphicon glyphicon-ok success"></span>
+                                            </span>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
-                                        <input type="text" placeholder="Nhập tên gói hoặc nhà xuất bản" class="form-control" id="" formControlName="appId">
+                                        <i class="fas fa-check-circle"></i>
                                     </div>
                                     <div *ngIf="appId.invalid && appId.touched" class="vali_error">
 
@@ -48,7 +57,7 @@
                                             * appCampaign must be at least 6 characters long.
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn_create btn btn-primary" [disabled]="appForm.invalid" (click)="registerApp()">Tạo quảng cáo</button>
+                                    <button type="submit" class="btn_create btn btn-primary" [disabled]="appForm.invalid || !isAppExists" (click)="registerApp()">Tạo quảng cáo</button>
                                 </form>
                             </div>
                         </div>

@@ -56,22 +56,7 @@ export class AdsService {
     createAds(ads: any): Observable<Response>{
         let url = config.api_url + '/ads';
         console.log('ads:', ads);
-        return this.http.post(url, JSON.stringify({
-            address: ads.address,
-            sex: ads.sex,
-            startAge: ads.startAge,
-            endAge: ads.endAge,
-            platform: ads.platform,
-            type: ads.type,
-            startTime: ads.startTime,
-            endTime: ads.endTime,
-            amount: ads.amount,
-            link: ads.link,
-            keyword: ads.keyword,
-            coin: ads.coin,
-            priority: ads.priority,
-            package: ads.package
-        }), this.httpOptions).pipe(
+        return this.http.post(url, JSON.stringify(ads), this.httpOptions).pipe(
             tap((response: Response)=>{
                 return response;
             }),

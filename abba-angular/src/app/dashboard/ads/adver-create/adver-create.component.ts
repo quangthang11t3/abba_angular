@@ -25,6 +25,8 @@ export class AdverCreateComponent implements OnInit {
   isApp = false;
   public loading = false;
   adsType = -1;
+  isEnterAppId = true;
+  isAppExists = false;
 
   types = [
     'Trò chơi',
@@ -391,6 +393,12 @@ export class AdverCreateComponent implements OnInit {
       link = this.appForm.value.appId;
     }
 
+    let isSearch = false;
+
+    if(this.adsDetailForm.value.keyword){
+      isSearch = true;
+    }
+
     if(this.adsType === 2) link = this.webForm.value.webUrl;
     if(this.adsType === 3) link = this.fbForm.value.fbUrl;
 
@@ -408,13 +416,20 @@ export class AdverCreateComponent implements OnInit {
       keyword: this.adsDetailForm.value.keyword,
       coin: this.adsDetailForm.value.coin,
       priority: this.adsDetailForm.value.priority,
-      package: packages
+      package: packages,
+      isSearch: isSearch
     }
+
+    console.log('adsObj:', adsObj);
 
     this.adsService.createAds(adsObj).subscribe((response)=>{
       this.loading = false;
       console.log(response);
       if(response['success']){
+        this.adsForm.reset();
+        this.webForm.reset();
+        this.fbForm.reset();
+        this.adsDetailForm.reset();
         this.toastr.success('Create ads success');
         this.cancel();
       } else {
@@ -440,5 +455,36 @@ export class AdverCreateComponent implements OnInit {
   cancel(){
     $('.state_1_2').css("display", "block");
     $('.state3').css("display", "none");
+  }
+
+  checkApp(event){
+    this.loading = true;
+    let appType = this.appForm.value.appType;
+    let appId = this.appForm.value.appId;
+
+    if(appId){
+      this.adsService.checkApp(appType, appId).subscribe((response)=>{
+        this.loading = false;
+        if(response['success']){
+          this.isAppExists = true;
+          this.isEnterAppId = false;
+        } else {
+          this.isAppExists = false;
+          this.isEnterAppId = false;
+        }
+      },
+      error=>{
+        this.loading = false;
+        this.toastr.error('Network error');
+      });
+    } else {
+      this.loading = false;
+      this.isEnterAppId = false;
+    }
+  }
+
+  inputAppId() {
+    this.isEnterAppId = true;
+    this.isAppExists = false;
   }
 }
