@@ -27,6 +27,10 @@ export class AdverCreateComponent implements OnInit {
   adsType = -1;
   isEnterAppId = true;
   isAppExists = false;
+  isEnterWebUrl = true;
+  isWebExists = false;
+  isEnterFbUrl = true;
+  isFbExists = false;
 
   types = [
     'Trò chơi',
@@ -374,6 +378,8 @@ export class AdverCreateComponent implements OnInit {
     }
 
     let packages ='';
+    let link = '';
+    let appId = '';
 
     if( this.adsType <= 1){
       if(!isInstall && !isView){
@@ -385,12 +391,9 @@ export class AdverCreateComponent implements OnInit {
       if(isInstall && isView)  packages = '2';
       else if(isInstall) packages = '0';
       else if(isView) packages = '1';
-    }
 
-    let link = '';
-
-    if(this.adsType <=1) {
       link = this.appForm.value.appId;
+      appId = this.appForm.value.appId;
     }
 
     let isSearch = false;
@@ -400,7 +403,7 @@ export class AdverCreateComponent implements OnInit {
     }
 
     if(this.adsType === 2) link = this.webForm.value.webUrl;
-    if(this.adsType === 3) link = this.fbForm.value.fbUrl;
+    else if(this.adsType === 3) link = this.fbForm.value.fbUrl;
 
     let adsObj = {
       address: this.adsForm.value.address,
@@ -417,7 +420,8 @@ export class AdverCreateComponent implements OnInit {
       coin: this.adsDetailForm.value.coin,
       priority: this.adsDetailForm.value.priority,
       package: packages,
-      isSearch: isSearch
+      isSearch,
+      appId: appId
     }
 
     console.log('adsObj:', adsObj);
@@ -443,7 +447,7 @@ export class AdverCreateComponent implements OnInit {
   }
 
   checkFBLink(link){
-    return link.indexOf('https://www.facebook.com/groups/') >= 0;
+    return link.indexOf('https://www.facebook.com/') >= 0;
   }
 
   closeState2(component){
@@ -483,8 +487,63 @@ export class AdverCreateComponent implements OnInit {
     }
   }
 
+  checkWeb(event){
+    this.loading = true;
+    let webUrl = this.webForm.value.webUrl;
+
+    if(webUrl){
+      this.adsService.checkWebUrl(webUrl).subscribe((response)=>{
+        this.loading = false;
+        if(response['success']){
+          this.isWebExists = true;
+          this.isEnterWebUrl = false;
+        } else {
+          this.isWebExists = false;
+          this.isEnterWebUrl = false;
+        }
+      },
+      error=>{
+        this.loading = false;
+        this.toastr.error('Network error');
+      });
+    } else {
+      this.loading = false;
+      this.isEnterWebUrl = false;
+    }
+  }
+
+  checkFb(event){
+    this.loading = true;
+    let fbUrl = this.fbForm.value.fbUrl;
+
+    if(fbUrl){
+      let fb = this.checkFBLink(fbUrl);
+      if(fb){
+        this.isFbExists = true;
+        this.isEnterFbUrl = false;
+      } else {
+        this.isFbExists = false;
+        this.isEnterFbUrl = false;
+      }
+    } else {
+      this.isFbExists = false;
+      this.isEnterFbUrl = false;
+    }
+    this.loading = false;
+  }
+
   inputAppId() {
     this.isEnterAppId = true;
     this.isAppExists = false;
+  }
+
+  inputWeb() {
+    this.isEnterWebUrl = true;
+    this.isWebExists = false;
+  }
+
+  inputFb() {
+    this.isEnterFbUrl = true;
+    this.isFbExists = false;
   }
 }

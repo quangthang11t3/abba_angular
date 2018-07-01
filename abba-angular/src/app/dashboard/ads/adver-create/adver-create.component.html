@@ -82,8 +82,14 @@
                                             <option>Youtube</option>
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <input type="text" placeholder="Liên kết website" class="form-control" id="" formControlName="webUrl">
+                                    <div class="form-group ic_validate_wrap">
+                                        <input type="text" placeholder="Liên kết website" class="form-control" id="" formControlName="webUrl" (focusout)="checkWeb($event)" (focus)="inputWeb()">
+                                        <div *ngIf="!isEnterWebUrl">
+                                            <span [ngSwitch]="isWebExists">
+                                                <span *ngSwitchCase="false" class="ic_validate error glyphicon glyphicon-remove"></span>
+                                            <span *ngSwitchCase="true" class="ic_validate glyphicon glyphicon-ok success"></span>
+                                            </span>
+                                        </div>
                                     </div>
                                     <div *ngIf="webUrl.invalid && webUrl.touched" class="vali_error">
 
@@ -106,7 +112,7 @@
                                             * webCampaign must be at least 6 characters long.
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn_create btn btn-primary" [disabled]="webForm.invalid" (click)="registerWeb()">Tạo quảng cáo</button>
+                                    <button type="submit" class="btn_create btn btn-primary" [disabled]="webForm.invalid || !isWebExists" (click)="registerWeb()">Tạo quảng cáo</button>
                                 </form>
                             </div>
                         </div>
@@ -132,8 +138,14 @@
                                         <option>Bài viết</option>
                                       </select>
                                     </div>
-                                    <div class="form-group">
-                                        <input type="text" placeholder="Liên kết facebook" class="form-control" id="" formControlName="fbUrl">
+                                    <div class="form-group ic_validate_wrap">
+                                        <input type="text" placeholder="Liên kết facebook" class="form-control" id="" formControlName="fbUrl" (focusout)="checkFb($event)" (focus)="inputFb()">
+                                        <div *ngIf="!isEnterFbUrl">
+                                            <span [ngSwitch]="isFbExists">
+                                                <span *ngSwitchCase="false" class="ic_validate error glyphicon glyphicon-remove"></span>
+                                            <span *ngSwitchCase="true" class="ic_validate glyphicon glyphicon-ok success"></span>
+                                            </span>
+                                        </div>
                                     </div>
                                     <div *ngIf="fbUrl.invalid && fbUrl.touched" class="vali_error">
 
@@ -156,7 +168,7 @@
                                             * fbCampaign must be at least 6 characters long.
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn_create btn btn-primary" [disabled]="fbForm.invalid" (click)="registerFb()">Tạo quảng cáo</button>
+                                    <button type="submit" class="btn_create btn btn-primary" [disabled]="fbForm.invalid || !isFbExists" (click)="registerFb()">Tạo quảng cáo</button>
                                 </form>
                             </div>
                         </div>
