@@ -12,6 +12,6 @@ export class StringFilterPipe {
         if (!q || q === '') {
             return value;
         }
-        return value.filter(item => -1 < item.toLowerCase().indexOf(q.toLowerCase()));
+        return value.filter(item => -1 < item['user'].toLowerCase().indexOf(q.toLowerCase()));
     }
 }

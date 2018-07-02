@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit, Input} from '@angular/core';
 import { RequestPaymentService } from '../../../shared/services/request-payment.service';
 import { ToastrService} from 'ngx-toastr';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-request-exchange',
@@ -15,33 +14,20 @@ export class RequestExchangeComponent implements OnInit {
   private page: number;
   public loading: boolean;
   public count: number;
-  private searchForm: FormGroup;
-  private search = {
-    email: '',
-    datefrom: 0,
-    dateto: 0
-  };
+  public queryString: string;
+  public filter: string;
 
   constructor(
     private toastr: ToastrService,
     private requestPaymentService: RequestPaymentService) { }
 
   ngOnInit() {
-    this.searchForm = new FormGroup({
-      'email': new FormControl(this.search.email, [
-        Validators.required,
-        Validators.email
-      ])
-    });
     this.page = 1;
     this.loading = false;
     this.requests = [];
     this.count = 0;
+    this.filter = '';
     this.getPage(1);
-  }
-
-  get email(){
-    return this.searchForm.get('email');
   }
 
   pay(id) {
@@ -50,7 +36,7 @@ export class RequestExchangeComponent implements OnInit {
       this.loading = false;
       console.log(response);
       if(response['success']){
-        $(`.${id}`).hide();
+        this.removeRequest(id);
         this.toastr.success('Thanh toán thành công.');
       } else {
         this.toastr.error('Thanh toán thất bại.');
@@ -62,18 +48,24 @@ export class RequestExchangeComponent implements OnInit {
     });
   }
 
+  removeRequest(id){
+    for(let i =0; i< this.requests.length; i++){
+      if(this.requests[i].id === id){
+        this.requests.splice(i, 1);
+        break;
+      }
+    }
+  }
+
   getPage(page: number) {
     this.loading = true;
     this.requestPaymentService.getAll(page).subscribe((response)=>{
-      console.log(response);
       this.loading = false;
       if(response['success']){
         this.requests = [];
-        console.log('response:', response);
         let data = response['data'] && response['data']['requests'];
         this.page = response['data'] && response['data']['index'];
         this.count = response['data'] && response['data']['count'];
-        console.log('data:', data);
         if(data.length > 0){
           data.forEach(element => {
             this.requests.push({
@@ -85,17 +77,14 @@ export class RequestExchangeComponent implements OnInit {
               user: element['userId'] && element['userId']['email']
             });
           });
-          console.log(this.requests);
         }
       } else {
         this.toastr.error('Cannot get list request.');
       }
     },
     error=>{
-      console.log(error);
       this.loading = false;
       this.toastr.error('Network error');
     });
   }
-
 }

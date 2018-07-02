@@ -44,6 +44,7 @@ import { ManageUserComponent } from './dashboard/ads/manage-user/manage-user.com
 // import { GocarIntlTelInputComponent } from './intl-telephone/intl-telephone.component';
 import { RequestPaymentService } from './shared/services/request-payment.service';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {StringFilterPipe} from './pipes/string-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     ListAppComponent,
     ManageUserComponent,
     // GocarIntlTelInputComponent
+    StringFilterPipe
   ],
   imports: [
     HttpClientModule,
