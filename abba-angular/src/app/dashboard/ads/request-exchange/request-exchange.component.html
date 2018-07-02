@@ -5,21 +5,21 @@
     <div class="inner_cntbox_ttl">
         <p>Danh sách yêu cầu thanh toán</p>
     </div>
-    <form class="form-horizontal" action="#" method="get" [formGroup]="searchForm" #formDir="ngForm">
+    <form class="form-horizontal" action="#" method="get">
         <fieldset>
             <div class="row reset_mg">
                 <div class='col-sm-4'>
                     <div class="form-group form-group-sm">
                         <label class="control-label col-sm-3">Email:</label>
                         <div class='input-group date  col-sm-9'>
-                            <input type="text" placeholder="Nhập email" class="form-control" style="border-radius: 4px; width: 100%;" formControlName="email">
+                            <input type="text" placeholder="Nhập email" class="form-control" style="border-radius: 4px; width: 100%;" [(ngModel)]="filter" [ngModelOptions]="{standalone: true}">
                         </div>
-                        <div *ngIf="email.invalid && email.touched" class="vali_error">
+                        <div *ngIf="filter.invalid && filter.touched" class="vali_error">
 
-                            <div *ngIf="email.errors.required">
+                            <div *ngIf="filter.errors.required">
                                 * email is required.
                             </div>
-                            <div *ngIf="email.errors.email">
+                            <div *ngIf="filter.errors.email">
                                 * invalid format.
                             </div>
                         </div>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class='col-sm-3'>
-                    <input type="submit" value="Tìm kiếm" class="btn btn-primary btn_update">
+                    <input type="submit" value="Tìm kiếm" class="btn btn-primary btn_update" (click)="search()">
                 </div>
             </div>
 
@@ -76,7 +76,7 @@
                 </tr>
             </thead>
             <tbody *ngIf="requests.length">
-                <tr *ngFor="let i = index; let request of requests | paginate: { id: 'server', itemsPerPage: 10, currentPage: page, totalItems: count }">
+                <tr *ngFor="let i = index; let request of requests | stringFilter: filter | paginate: { id: 'server', itemsPerPage: 10, currentPage: page, totalItems: count }" id={{request.id}}>
                     <td>{{i + 1 }}</td>
                     <td>{{request.user}}</td>
                     <td>{{request.date | date}}</td>
