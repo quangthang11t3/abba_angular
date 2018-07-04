@@ -19,8 +19,8 @@ export class RequestPaymentService {
         })
     }
 
-    getAll(page: number): Observable<Response> {
-        const url = config.api_url + `/payment-request?page=${page}`;
+    getAll(): Observable<Response> {
+        const url = config.api_url + `/payment-request`;
         return this.http.get(url, this.httpOptions).pipe(
             tap((response: Response)=>{
                 return response;

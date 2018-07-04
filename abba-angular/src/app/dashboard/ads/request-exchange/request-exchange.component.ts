@@ -5,13 +5,12 @@ import { ToastrService} from 'ngx-toastr';
 @Component({
   selector: 'app-request-exchange',
   templateUrl: './request-exchange.component.html',
-  styleUrls: ['./request-exchange.component.css'],
-  changeDetection: ChangeDetectionStrategy.Default
+  styleUrls: ['./request-exchange.component.css']
 })
 export class RequestExchangeComponent implements OnInit {
 
   private requests : any;
-  private page: number;
+  public page: number;
   public loading: boolean;
   public count: number;
   public queryString: string;
@@ -27,7 +26,7 @@ export class RequestExchangeComponent implements OnInit {
     this.requests = [];
     this.count = 0;
     this.filter = '';
-    this.getPage(1);
+    this.getPage();
   }
 
   pay(id) {
@@ -57,16 +56,14 @@ export class RequestExchangeComponent implements OnInit {
     }
   }
 
-  getPage(page: number) {
+  getPage() {
     this.loading = true;
-    this.requestPaymentService.getAll(page).subscribe((response)=>{
+    this.requestPaymentService.getAll().subscribe((response)=>{
       this.loading = false;
       if(response['success']){
-        this.requests = [];
         let data = response['data'] && response['data']['requests'];
-        this.page = response['data'] && response['data']['index'];
         this.count = response['data'] && response['data']['count'];
-        if(data.length > 0){
+        if(data && data.length > 0){
           data.forEach(element => {
             this.requests.push({
               id: element['id'],
